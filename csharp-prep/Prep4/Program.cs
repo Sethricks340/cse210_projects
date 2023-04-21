@@ -15,7 +15,7 @@ class Program
             numbers.Add(number);
         }
 
-
+        numbers.Remove(0);
         Console.WriteLine("Here is your list of numbers: ");
         for (int i = 0; i < numbers.Count; i++)
         {
@@ -28,7 +28,7 @@ class Program
             Console.WriteLine($"The average of your numbers is: {avg}");
 
         long largest = -1;
-        for (int i = 0; i < numbers.Count -1; i++)
+        for (int i = 0; i < numbers.Count; i++)
         {
             if(numbers[i] > largest)
             {
@@ -38,7 +38,7 @@ class Program
         Console.WriteLine($"The largest number is: {largest}");
 
         long smallest = 9999;
-        for (int i = 0; i < numbers.Count - 1; i++)
+        for (int i = 0; i < numbers.Count; i++)
         {
             if(numbers[i] < smallest && numbers[i] > 0)
             {
