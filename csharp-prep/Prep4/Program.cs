@@ -19,7 +19,7 @@ class Program
         Console.WriteLine("Here is your list of numbers: ");
         for (int i = 0; i < numbers.Count; i++)
         {
-            Console.Write($"{numbers[i]}, ");
+            Console.WriteLine($"{numbers[i]}");
 
         }
             int sum = numbers.Sum();
@@ -52,5 +52,6 @@ class Program
         {
             Console.WriteLine($"{value}");
         }
+        Console.WriteLine("");
     }
 }
