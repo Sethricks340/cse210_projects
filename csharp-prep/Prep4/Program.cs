@@ -47,7 +47,7 @@ class Program
         }
         Console.WriteLine($"The smallest positive number is: {smallest}");
         numbers.Sort();
-        Console.WriteLine($"Here is the sorted list of numbers");
+        Console.WriteLine($"Here is the sorted list of numbers: ");
         foreach(var value in numbers)
         {
             Console.WriteLine($"{value}");
