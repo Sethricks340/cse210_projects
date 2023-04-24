@@ -5,20 +5,19 @@ class Program
     static void Main(string[] args)
     {
     Random randomGenerator = new Random();
-    int guess;
+    float guess;
     int count;
     string response = "yes";
     int number = -1;
 
 while (response == "yes")
 {
-number = randomGenerator.Next(1, 101);
+number = randomGenerator.Next(1, 2);
 count = 0;
     do
     {
         Console.Write("What is your guess? ");
-        guess = int.Parse(Console.ReadLine());
-
+        guess = float.Parse(Console.ReadLine());
 
         if (guess > number)
         {
@@ -33,7 +32,15 @@ count = 0;
     } while (number != guess);
 
     Console.WriteLine("You guessed it! ");
-    Console.WriteLine($"It took you {count} guesses! ");
+
+    if (count == 1){
+    Console.WriteLine($"It took you {count} guess! ");}
+
+    else {
+    Console.WriteLine($"It took you {count} guesses! ");}
+
+
+
     Console.Write("Do you want to continue? ");
     response = Console.ReadLine();
 
