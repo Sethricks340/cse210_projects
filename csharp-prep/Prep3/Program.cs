@@ -19,15 +19,12 @@ count = 0;
         Console.Write("What is your guess? ");
         guess = float.Parse(Console.ReadLine());
 
-        if (guess > number)
-        {
-            Console.WriteLine("Lower");
-        }
+        if (guess > number){
+            Console.WriteLine("Lower");}
 
-        else if (guess < number)
-        {
-            Console.WriteLine("Higher");
-        }
+        else if (guess < number){
+            Console.WriteLine("Higher");}
+
     count += 1;
     } while (number != guess);
 
@@ -36,10 +33,7 @@ count = 0;
     if (count == 1){
     Console.WriteLine($"It took you {count} guess! ");}
 
-    else {
-    Console.WriteLine($"It took you {count} guesses! ");}
-
-
+    else {Console.WriteLine($"It took you {count} guesses! ");}
 
     Console.Write("Do you want to continue? ");
     response = Console.ReadLine();
