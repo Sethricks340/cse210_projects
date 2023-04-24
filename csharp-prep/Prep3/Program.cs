@@ -12,7 +12,7 @@ class Program
 
 while (response == "yes")
 {
-number = randomGenerator.Next(1, 2);
+number = randomGenerator.Next(1, 101);
 count = 0;
     do
     {
