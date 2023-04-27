@@ -11,19 +11,22 @@ edit, and upload code- all while their edit history is recorded and commented
 on. If a mistake is made, developers can identify when, where, and by whom 
 it was made. The code can then be reverted back into a past version, and hence 
 the bug is omitted. With version control, teams of developers are also enabled to see 
-what the current state of the code is, instead of having to guess who has the most updated version.
+what the current state of the code is, instead of having to guess who has the most 
+updated version.
 
 An example of a version control system is git. Using the terminal, a developer can
-stage, commit, and push their version of the source file back into a repository, where other
-developers can see it. Here is an example of how this could be done in a terminal:
+stage, commit, and push their version of the source file back into a repository, 
+where otherdevelopers can see it. 
+
+Here is an example of how this could be done in a terminal:
 
 //This command adds the current file to the staging area, 
-where it is ready to be committed.
+//where it is ready to be committed.
 git add .
 
 //This command saves the current changes of the line, and allows a comment on the changes.
 git commit -m "I've fixed the bug on line 38."
 
 //This command uploads the file to github, where it is stored in a remote repository. 
-If this repository is public, it can be viewed by other developers.
+//If this repository is public, it can be viewed by other developers.
 git push
