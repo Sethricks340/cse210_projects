@@ -6,7 +6,7 @@ Console.WriteLine(source.Stringify());
 
 Quote holland = new Quote("Elder Holand", "Because Jesus walked alone, we don't have to", source);
 
-// Console.WriteLine(holland.GetQuote());
+Console.WriteLine(holland.GetQuote());
 
 Board quoteboard = new Board();
 // quoteboard.AddQuote(holland);
