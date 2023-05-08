@@ -7,9 +7,13 @@ public class Entry
         _prompt = prompt;
     }
 
-    public void WritePrompt()
+    public void WritePrompt(Journal _journal)
     {
-        _prompt.PrintRandomPrompt();
+        string currentPrompt = _prompt.GetRandomPrompt();
+        Console.Write(currentPrompt);
         string response = Console.ReadLine();
+        String currentDateTime = DateTime.Now.ToString("MM/dd/yyyy");
+        string fullEntry = $"Date: {currentDateTime}\nPrompt: {currentPrompt}\nResponse: {response}\n";
+        _journal.StageJournal(fullEntry);
     }
 }
