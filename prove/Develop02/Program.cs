@@ -11,8 +11,10 @@ class Program
     
         Entry entry = new Entry(prompt);
         Journal journal = new Journal();
-        entry.WritePrompt(journal);
-        entry.WritePrompt(journal);
-        journal.SaveJournal();
+        // entry.WritePrompt(journal);
+        // entry.WritePrompt(journal);
+        // journal.SaveJournal();
+        // journal.SaveJournal();
+        journal.DisplayJournal();
     } 
 }

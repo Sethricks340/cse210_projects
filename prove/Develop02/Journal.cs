@@ -30,5 +30,20 @@ public class Journal
                 outputFile.WriteLine(entry);
             }
         }
+        _entries.Clear();
+    }
+
+    public void DisplayJournal()
+    {
+            
+        Console.Write("What is the name of the file? ");
+        string filename = Console.ReadLine();
+        string[] lines = System.IO.File.ReadAllLines(filename);
+
+        Console.Write($"\n");
+        foreach (string line in lines)
+        {
+            Console.Write($"{line}\n");
+        }
     }
 }
