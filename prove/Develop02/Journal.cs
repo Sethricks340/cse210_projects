@@ -14,14 +14,11 @@ public class Journal
         _entries.Add(_entry);
     }
 
-    public void SaveJournal()
+    public void SaveJournal(string filename)
     {
         //foreach loop that saves every entry put in so far into the journal.txt file, 
         //And then deletes them all from the list in case the user writes and saves again, so that 
         //Things aren't saved twice in the file
-        
-        Console.Write("What is the name of the file? ");
-        string filename = Console.ReadLine();
         
         using (StreamWriter outputFile = new StreamWriter(filename, true))
         {
@@ -33,11 +30,8 @@ public class Journal
         _entries.Clear();
     }
 
-    public void DisplayJournal()
+    public void DisplayJournal(string filename)
     {
-            
-        Console.Write("What is the name of the file? ");
-        string filename = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(filename);
 
         Console.Write($"\n");
@@ -45,5 +39,12 @@ public class Journal
         {
             Console.Write($"{line}\n");
         }
+    }
+
+    public string Load()
+    {
+        Console.Write("What is the name of the file? ");
+        string filename = Console.ReadLine();   
+        return filename;
     }
 }

@@ -11,10 +11,12 @@ class Program
     
         Entry entry = new Entry(prompt);
         Journal journal = new Journal();
+        //string filename = journal.Load();
         // entry.WritePrompt(journal);
-        // entry.WritePrompt(journal);
-        // journal.SaveJournal();
-        // journal.SaveJournal();
-        journal.DisplayJournal();
+        // // entry.WritePrompt(journal);
+        //journal.SaveJournal(filename);
+        // journal.DisplayJournal(filename);
+        Menu menu = new Menu(entry, journal);
+        menu.Display();
     } 
 }
