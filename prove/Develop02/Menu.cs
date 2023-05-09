@@ -14,9 +14,9 @@ public class Menu
     {
         Console.WriteLine("\nWelcome to the journal program! ");
 
-        int response = 0;
-        int[] options = {1, 2, 3, 4, 5};
-        while(response != 5)
+        string response = "";
+        string[] options = {"1", "2", "3", "4", "5"};
+        while(response != "5")
         {
             while(options.Contains(response)==false)
             {
@@ -27,12 +27,12 @@ public class Menu
             Console.WriteLine("4. Save ");
             Console.WriteLine("5. Quit ");
             
-            response = int.Parse(Console.ReadLine());
+            response = Console.ReadLine();
             }
 
             switch(response)
             {
-                case 5:
+                case "5":
                     if (!save)
                     {
                         Console.Write("You haven't saved. Are you sure you want to without saving? (Enter 'yes' to continue) ");
@@ -62,12 +62,12 @@ public class Menu
 
                     break;
                 
-                case 1:
+                case "1":
                     _entry.WritePrompt(_journal);
                     save = false;
                     break;
 
-                case 2:
+                case "2":
                     bool fileExist = File.Exists(filename);
                     if (! fileExist)
                     {
@@ -78,11 +78,11 @@ public class Menu
                     _journal.DisplayJournal(filename);
                     break;
 
-                case 3:
+                case "3":
                     filename = _journal.Load();
                     break;
 
-                case 4:
+                case "4":
                     if (filename == "")
                     {
                         filename = _journal.Load();
@@ -91,7 +91,7 @@ public class Menu
                     save = true;
                     break;
             }
-            response = 0;
+            response = "0";
         }
 
 
