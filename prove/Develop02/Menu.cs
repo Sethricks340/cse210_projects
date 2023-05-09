@@ -3,6 +3,7 @@ public class Menu
     private Entry _entry;
     private Journal _journal;
     private String filename = "";
+    private bool save;
     public Menu(Entry entry, Journal journal)
     {
         _entry = entry;
@@ -11,7 +12,7 @@ public class Menu
 
     public void Display()
     {
-        Console.WriteLine("Welcome to the journal program! ");
+        Console.WriteLine("\nWelcome to the journal program! ");
 
         int response = 0;
         int[] options = {1, 2, 3, 4, 5};
@@ -19,7 +20,7 @@ public class Menu
         {
             while(options.Contains(response)==false)
             {
-            Console.WriteLine("Please select one of the following choices: ");
+            Console.WriteLine($"\nPlease select one of the following choices: ");
             Console.WriteLine("1. Write ");
             Console.WriteLine("2. Display ");
             Console.WriteLine("3. Load ");
@@ -32,23 +33,49 @@ public class Menu
             switch(response)
             {
                 case 5:
-                    Environment.Exit(0);
-                    break;
-                
-                case 1:
-                    _entry.WritePrompt(_journal);
-                    break;
-
-                case 2:
-                    if (filename == "")
+                    if (!save)
                     {
-                        filename = _journal.Load();
+                        Console.Write("You haven't saved. Are you sure you want to without saving? (Enter 'yes' to continue) ");
+                        string quit = Console.ReadLine();
+
+                        if (quit == "yes")
+                        {
+                            Environment.Exit(0);
+                        }
+                        else
+                        {
+                            if (filename == "")
+                            {
+                                filename = _journal.Load();
+                            }
+
+                            _journal.SaveJournal(filename);
+                            Console.WriteLine("Your responses have been saved.");
+                            Environment.Exit(0);
+                        }
                     }
 
                     else
                     {
-                    _journal.DisplayJournal(filename);
+                        Environment.Exit(0);
                     }
+
+                    break;
+                
+                case 1:
+                    _entry.WritePrompt(_journal);
+                    save = false;
+                    break;
+
+                case 2:
+                    bool fileExist = File.Exists(filename);
+                    if (! fileExist)
+                    {
+                        filename = _journal.Load();
+                    }
+
+                    
+                    _journal.DisplayJournal(filename);
                     break;
 
                 case 3:
@@ -60,8 +87,8 @@ public class Menu
                     {
                         filename = _journal.Load();
                     }
-
                     _journal.SaveJournal(filename);
+                    save = true;
                     break;
             }
             response = 0;

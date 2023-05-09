@@ -45,6 +45,12 @@ public class Journal
     {
         Console.Write("What is the name of the file? ");
         string filename = Console.ReadLine();   
+        using (StreamWriter outputFile = new StreamWriter(filename, true))
+        {
+        }
         return filename;
+
+        ////How to know if the file exists already or not??
+
     }
 }
