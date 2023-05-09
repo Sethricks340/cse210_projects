@@ -3,20 +3,18 @@
 ----------------------------
         - List<Entry> 
 -----------------------------
-        + write()
-        + save()
+        + StageJournal()
+        + SaveJournal()
+        + DisplayJournal()
         + Load()
-        + ShowAllEntries()
 =============================
             
 ============================
         Entry
 -----------------------------
         - Prompt 
-        - Date
-        - Time
 ------------------------------
-        + DisplayPastEntries()
+        +WritePrompt()
 ==============================
 
 =============================
@@ -24,16 +22,16 @@
 -----------------------------
         - List<String>
 ------------------------------
-        + GetRandomPrompt
+        + GetRandomPrompt()
 ==============================
 
 =============================
             Menu
 -----------------------------
+        - private Entry _entry
+        - private Journal _journal
+        - private String filename = ""
+        - private bool save
 ------------------------------
-        + DisplayMenu()
-==============================
-
-==============================
-        Journal.csv
+        + Display()
 ==============================
