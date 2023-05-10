@@ -19,5 +19,6 @@ public class Prompt
         string randomPrompt = _prompts[randomNumber];
         return randomPrompt;
     }
-
 }
+//What is Random()? Is it a class?
+//What is the .Next() method?
