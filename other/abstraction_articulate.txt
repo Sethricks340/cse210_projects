@@ -1,0 +1,14 @@
+Seth Ricks 
+Prove: Articulate- Abstraction
+Brother Hayes
+CSE 210
+
+Abstraction is the principle of taking a concept that is complex and labeling it in such a way that allows usage of said concept without having to 
+know all of the implications that are taking place "under the hood." A benefit of abstraction is being able to utilize something that has been written
+without having to go through and understand every single line of code that is running in the background. For example, in the method ".WriteLine()"
+there are literally thousands of lines of code that make it possible for a message to be printed to the screen. But for a programmer to use this, 
+it is only necessary to know the valid syntax in calling it. This could be applied to any program that someone might create, in that it can be used 
+without the user having to think about every little thing that is going on. I used the principle of abstraction when I wrote my journal program, in that 
+I created different classes that perfomed different functions. I then can call different aspects of this class, without having to rewrite or really 
+even think about what is occuring. In general, the principle of abstraction is very useful in the simplification and streamline of complex and difficult
+programs.
