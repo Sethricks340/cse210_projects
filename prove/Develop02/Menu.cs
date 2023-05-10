@@ -2,8 +2,8 @@ public class Menu
 {
     private Entry _entry;
     private Journal _journal;
-    private String filename = "";
-    private bool save;
+    private String _filename = "";
+    private bool _save;
     public Menu(Entry entry, Journal journal)
     {
         _entry = entry;
@@ -33,7 +33,7 @@ public class Menu
             switch(response)
             {
                 case "5":
-                    if (!save)
+                    if (!_save)
                     {
                         Console.Write("You haven't saved. Are you sure you want to without saving? (Enter 'yes' to continue) ");
                         string quit = Console.ReadLine();
@@ -44,12 +44,12 @@ public class Menu
                         }
                         else
                         {
-                            if (filename == "")
+                            if (_filename == "")
                             {
-                                filename = _journal.Load();
+                                _filename = _journal.Load();
                             }
 
-                            _journal.SaveJournal(filename);
+                            _journal.SaveJournal(_filename);
                             Console.WriteLine("Your responses have been saved.");
                             Environment.Exit(0);
                         }
@@ -64,31 +64,31 @@ public class Menu
                 
                 case "1":
                     _entry.WritePrompt(_journal);
-                    save = false;
+                    _save = false;
                     break;
 
                 case "2":
-                    bool fileExist = File.Exists(filename);
+                    bool fileExist = File.Exists(_filename);
                     if (! fileExist)
                     {
-                        filename = _journal.Load();
+                        _filename = _journal.Load();
                     }
 
                     
-                    _journal.DisplayJournal(filename);
+                    _journal.DisplayJournal(_filename);
                     break;
 
                 case "3":
-                    filename = _journal.Load();
+                    _filename = _journal.Load();
                     break;
 
                 case "4":
-                    if (filename == "")
+                    if (_filename == "")
                     {
-                        filename = _journal.Load();
+                        _filename = _journal.Load();
                     }
-                    _journal.SaveJournal(filename);
-                    save = true;
+                    _journal.SaveJournal(_filename);
+                    _save = true;
                     break;
             }
             response = "0";

@@ -50,7 +50,5 @@ public class Journal
         }
         return filename;
 
-        ////How to know if the file exists already or not??
-
     }
 }
