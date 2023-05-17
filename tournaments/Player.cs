@@ -10,6 +10,7 @@ public class Player
     {
         _name = name;
         _jersey = jersey;
+        _position = "";
 
     }
 
