@@ -4,20 +4,23 @@ class Program
 {
     static void Main(string[] args)
     {
-        Word word = new Word("Capricious");
-        word.display();
-        //word.HideWord();
-        word.SetWord("Capricious");
-        word.HideWord();
-        word.display();
-
-        Scripture scripture = new Scripture("And it came to pass, that I wrote some code.");
-        List<string>words = new List<string>();
-        words = scripture.ParseScripture();
-
-        foreach (string scriptureWord in words)
+        //The scriptures and references can be set by hand, if not then a random scripture is generated.
+        // Reference reference = new Reference("2 Nephi", "2", "27");
+        // Scripture scripture = new Scripture("Wherefore, men are free according to the flesh; and all things are given them which are expedient unto man. And they are free to choose liberty and eternal life, through the great Mediator of all men, or to choose captivity and death, according to the captivity and power of the devil; for he seeketh that all men might be miserable like unto himself.");
+        Scripture scripture = new Scripture();
+        Console.Clear();
+        scripture.ParseScripture();
+        scripture.DisplayScripture();
+        Console.WriteLine($"\n\nPress enter to continue or type 'quit' to finish: ");
+        
+        while (scripture.CountShownWords() != 0)
         {
-            Console.WriteLine($"{scriptureWord}");
+            scripture.ResetScripture();
+            scripture.HideThreeRandomWords(); 
+            // Console.Write($"{reference.GetReference()}");
+            scripture.DisplayScripture();
+            Console.WriteLine($"\n\nPress enter to continue or type 'quit' to finish: ");
         }
+        Console.ReadLine();
     }
 }

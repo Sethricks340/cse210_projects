@@ -1,7 +1,7 @@
 public class Word
 {
     private string _word;
-    private bool shown = true;
+    private bool _shown = true;
 
 
     public Word(string word)
@@ -9,14 +9,23 @@ public class Word
         _word = word;
     }
 
+    public Word()
+    {
+    }
+
+    public bool GetShown()
+    {
+        return _shown;
+    }
+
     public void SetWord(string word)
     {
         _word = word;
     }
 
-    public void display()
+    public void Display()
     {
-        Console.WriteLine($"{_word}");
+        Console.Write($"{_word} ");
     }
 
     public void HideWord()
@@ -27,6 +36,8 @@ public class Word
         {
             newWord += "_";
         }
+        
         _word = newWord;
+        _shown = false;
     }
 }
