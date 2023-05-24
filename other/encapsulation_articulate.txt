@@ -1,0 +1,28 @@
+Seth Ricks 
+Prove: Articulate- Abstraction
+Brother Hayes
+CSE 210
+
+Encapsulation is the principle of hiding certain parts of a program from other parts of the program.
+This essentially allows the prevention of parts of the program from accessing important details that are 
+trivial to the specific functions of that program, or that could prove dangerous if changed accidentally or 
+on a whim. 
+
+One benefit of the principle of encapsulation is avoiding the unwanted change of a variable inside of a class that 
+would result in errors in calculations or logic. An example of an application of encapsulation is hiding the "ammount" 
+of money in a bank account from being changed directly. It would be wrong if somebody was able to say account.money = 10000000; 
+just because they wanted more money. However, if they take their own money and add it to their account, this member variable can 
+be righteously changed using some sort of class method.
+
+I used the prinicple of encapsulation when I wrote my code for the "scripture memorizer." Here is a snippet of said code:
+
+public class Word
+{
+    private string _word;
+    private bool _shown = true;
+
+**rest of code**
+}
+
+As you can see, in this class I set my member variables to "private." This means that only the "word" class will be able to access these 
+variables directly, and that other parts of the program will have to use a getter, setter, or some other method to be able to do so. 
