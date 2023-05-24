@@ -97,14 +97,8 @@ public class Scripture
 
     public void HideThreeRandomWords()
     {    
-        int shownCount = 0;
-        for (int i = 0; i < _words.Count; i++)
-        {
-            if (_words[i].GetShown() == true)
-            {
-                shownCount += 1;
-            } 
-        }
+        int shownCount;
+        shownCount = CountShownWords();
 
         if (shownCount < 3)
         {
