@@ -3,15 +3,19 @@ Week 07 Task
 Brother Sokolowsky
 CSE 121C
 
-Instructions:
-Throughout this course, you've been exposed to multiple sources of information about the language. This week, you are asked to spend about 
-three hours pondering and reasoning about the sources of information you've experienced.Your pondering and reasoning should include thinking 
-about these types of things. What, do you think, made the difference between a good source and one that wasn't so good? Have you learned to 
-tell reputable sources from iffy ones? How have you begun to differentiate between reputable and iffy sources? If, for example, you were going 
-to answer someone's coding question about this language, what should you do to be a reputable source? What online sources have you used and in 
-what order would you rank them for quality and usability?
+In my short personal experience programming, I've found that there are a few ways that one can determine if an online source of information is credible or not. The first of 
+these I believe to be functionality. In all honesty, if I test the example code that was provided on the source's page and find that it doesn't work, then that means this source 
+is most likely not to be trusted in the future. On the other hand, if I find the code to be helpful then that gives me further reasons to continue to trust the source. This could be 
+compared to actual test code that we have learned to write in the past. If the test doesn't work, then that means that there is something wrong and we have to change our function. On 
+the other hand, if we have througouly tested the code and it passes 100%, then we can have reasonable faith that the code works. Likewise, if a source of information seems to always work 
+and answer the questions that we have, then it can be deemed "passable." I've also found that sources that end in .org seem to be more reliable than .com sources, because the latter of 
+the two always seems to have pop ups with all sorts of advertisements and request for cookie access. Despite this, .com sources can also be very useful as I have found that they are written 
+by ordinary people trying to help others with their programming questions.
 
-While doing this pondering, create rules for yourself regarding what differentiates a good source from a poor one. Compare your set of rules 
-with those created by your team members. Then ponder again to see if you should, or should not, update your rule set to include ideas from their rule sets.
-
-Finally pick at least five sources that according to your rules you would consider "good". List them and discuss what makes each of them worthwhile.
+These are the five sources that I have personally deemed "reputable." I have determined them to be so because of the reasons that I have listed above, 
+and would recommend them for those that will be taking this course in the future.
+cppreference.com
+stackoverflow.com
+freeCodeCamp.org
+geeksforgeeks.org
+w3schools.com 
