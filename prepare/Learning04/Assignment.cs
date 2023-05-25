@@ -13,37 +13,4 @@ public class Assignment
     {
         return $"{_studentName} - {_topic}";
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//     public class MathAssignment: Assignment
-//     {
-//         private string _textbookSection;
-//         private string _problems;
-
-//         public void GetHomeworkList()
-//         {
-//         }
-//     }
-
-//     public class WritingAssignment: Assignment
-//     {
-//         private string _title;
-
-//         public void GetWritingInformation()
-//         {
-//         }
-//     }
-
 }
