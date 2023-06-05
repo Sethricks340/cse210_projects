@@ -1,5 +1,8 @@
 public class Menu
 {
+    private int _breathingCount = 0;
+    private int _reflectionCount = 0;
+    private int _listingCount = 0;
     public void Display()
     {
 
@@ -14,7 +17,8 @@ public class Menu
             Console.WriteLine("1. Start breathing activity");
             Console.WriteLine("2. Start reflecting activity");
             Console.WriteLine("3. Start listing activity");
-            Console.WriteLine("4. Quit");
+            Console.WriteLine("4. See activity count record");
+            Console.WriteLine("5. Quit");
             Console.Write("Select a choice from the menu: ");
             
             response = Console.ReadLine();
@@ -35,6 +39,7 @@ public class Menu
                     breathing.BreathInAndOut();
                     breathing.PrintEndMessage();
                     breathing.Pause();
+                    _breathingCount += 1;
                     break;
 
                 case "2":
@@ -50,6 +55,7 @@ public class Menu
                     reflection.DisplayPrompt();
                     reflection.PrintEndMessage();
                     reflection.Pause();
+                    _reflectionCount += 1;
                     break;
 
                 case "3":
@@ -66,9 +72,43 @@ public class Menu
                     listing.AddResponses();
                     listing.PrintEndMessage();
                     listing.Pause();
+                    _listingCount += 1;
+                    break;
+                
+                case "4":
+                    Mindfulness mindfulness = new Mindfulness();
+                    Console.Clear();
+                    if (_breathingCount != 1){
+                        Console.WriteLine($"You've done the breathing activity {_breathingCount} times! ");
+                    }
+
+                    else {
+                        Console.WriteLine($"You've done the breathing activity {_breathingCount} time! ");
+                    }
+                    
+                    if (_reflectionCount != 1){
+                        Console.WriteLine($"You've done the reflecting activity {_reflectionCount} times! ");
+                    }
+
+                    else {
+                        Console.WriteLine($"You've done the reflecting activity {_reflectionCount} time! ");
+                    }
+
+                    if (_listingCount != 1){
+                        Console.WriteLine($"You've done the listing activity {_listingCount} times! ");
+                    }
+
+                    else {
+                        Console.WriteLine($"You've done the listing activity {_listingCount} time! ");
+                    }
+
+                    Console.WriteLine("\nTaking you back to the main menu...");
+
+                    mindfulness.Pause();
+
                     break;
 
-                case "4":
+                case "5":
                     Environment.Exit(0);
                     break;
             }
