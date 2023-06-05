@@ -17,6 +17,4 @@ public class Loanable
     {
         Console.WriteLine($"Available: {_isCheckedIn}");
     }
-
-
 }
