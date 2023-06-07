@@ -5,7 +5,7 @@ public class Reflection : Mindfulness
     
     public Reflection()
     {
-        _prompts.Add("Think of a time when you stoop up for someone else. ");
+        _prompts.Add("Think of a time when you stood up for someone else. ");
         _prompts.Add("Think of a time when you did something really difficult. ");
         _prompts.Add("Think of a time when you helped someone in need. ");
         _prompts.Add("Think of a time when you did something truly selfless. ");
