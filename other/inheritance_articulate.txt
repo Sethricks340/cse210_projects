@@ -1,0 +1,94 @@
+Seth Ricks 
+Prove: Articulate- Inheritance Articulate
+Brother Hayes
+CSE 210
+
+What is version control and why is it important? 
+
+Principle:
+Inheritance in programming means that a "child" class can easily acquire the characteristics of a arent" class. 
+This means that it can inherit all of the member variables and methods. 
+
+Benefit:
+One benefit of using inheritance is not 
+having to re-write sections of classes that are essentially the same as others. A good rule to go by when deciding 
+whether or not to use inheritance is to think about to classes in terms of "is a." For example, if a "person" class 
+exists, then a "student" class could probably inherit its attributes. This is because a student "is a" person. 
+
+Application:
+An appliation of inheritance is the concept of overriding. If a child class needs to use a method that is already written 
+in a parent class, then the parent class can declare that method as "virtual." The child class can then declare a method
+with the same name, and then declare it as "override." The orginal method can then be changed as needed. This declaration is 
+not needed if the original method is not going to be changed, rather it can be simply called with base.method().
+
+Example:
+Here is an example of how I used inheritance from our previous prove assignment.
+
+/////Mindfulness.cs
+//First, I've declared a Mindfulness class. This is the parent class.
+
+public class Mindfulness
+{
+    protected string _startMessage = "";
+    protected string _endMessage = "";
+    protected int _duration = 0;
+    protected string _activityType = "";
+
+    public Mindfulness()
+    {
+    }
+
+        ........
+
+    public void CountFromFive()
+    {
+        Console.Write("5");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+        Console.Write("4");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+        Console.Write("3");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+        Console.Write("2");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+        Console.Write("1");
+        Thread.Sleep(1000);
+        Console.Write("\b \b");
+    }
+}
+
+
+/////Breathing.cs
+//Next, I've declared a Breathing class. This is the child class.
+
+//This notation means that this class inherits the attributes of the parent class.
+public class Breathing : Mindfulness
+{
+
+    public Breathing()
+    {
+    }
+
+    public void BreathInAndOut()
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(_duration);
+
+        DateTime currentTime = DateTime.Now;
+        while (currentTime < futureTime)
+        {
+            Console.Write("\nBreathe in...");
+            //This class is inherited from the Mindfulness class, and can be called using the base.method() notation.
+            base.CountFromFive();
+        
+            Console.Write("\nNow breathe out...");
+            base.CountFromFive();
+            
+            currentTime = DateTime.Now;
+        }
+        Console.WriteLine("");
+    }
+}
