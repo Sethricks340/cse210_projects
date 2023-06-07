@@ -49,8 +49,5 @@ public class Reflection : Mindfulness
             Random random2 = new Random();
             randomNumber = random2.Next(1, _prompts.Count);
         }
-
     }    
-
-
 }

@@ -35,7 +35,7 @@ public class Menu
                     breathing.PromptDuration();
                     Console.Clear();
                     Console.WriteLine("Get ready...");
-                    // breathing.Pause();
+                    breathing.Pause();
                     breathing.BreathInAndOut();
                     breathing.PrintEndMessage();
                     breathing.Pause();

@@ -1,8 +1,8 @@
 public class Mindfulness
 {
-    protected string _startMessage = "if this is on the screen, you did it wrong.";
-    protected string _endMessage = "";
-    protected int _duration;
+    protected string _startMessage = "if this start message is on the screen, you did it wrong.";
+    protected string _endMessage = "if this end message is on the screen, you did it wrong.";
+    protected int _duration = 0;
     protected string _activityType = "";
 
     public Mindfulness()
