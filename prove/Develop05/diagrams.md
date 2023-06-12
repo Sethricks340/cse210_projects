@@ -24,13 +24,12 @@
         +public Goal()
         +public abstract void DisplayGoal()
         +public void SetName()
-        +public void GetName()
+        +public string GetName()
         +public void SetPoints()
-        +public void GetPoints()
+        +public int GetPoints()
         +public void SetDescription()
-        +public void SetPointValue()
         +public void SetComplete()
-        +public void GetComplete()
+        +public bool GetComplete()
 ===============================================
             
 ==============================================
@@ -39,7 +38,7 @@
         -from base class
 ---------------------------------------------------
         +public SimpleGoal()
-        +public override void PrintGoal()
+        +public override void DisplayGoal()
 ================================================
 
 ===============================================
@@ -48,20 +47,20 @@
         -from base class
 ---------------------------------------------------
         +public EternalGoal()
-        +public override void PrintGoal()
+        +public override void DisplayGoal()
 ================================================
 
 ===============================================
-        ChecklistGoal : Goal
+        CheckListGoal : Goal
 --------------------------------------------------
         -from base class
         -private int accomplishedPoints
-        -private in timesToComplete
+        -private int timesToComplete
 ---------------------------------------------------
         +public ChecklistGoal()
-        +public override void PrintGoal()
-        +public void SetaccomplishedPoints()
-        +public void timesToComplete()
+        +public override void DisplayGoal()
+        +public void SetAccomplishedPoints()
+        +public void TimesToComplete()
         +public void CompleteTime()
 ================================================
 
