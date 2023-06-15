@@ -22,7 +22,7 @@ public abstract class Goal
     {
         _pointValue = points;
     }
-    public int GetPoints()
+    public virtual int GetPoints()
     {
         return _pointValue;
     }
@@ -31,9 +31,9 @@ public abstract class Goal
         _description = description;
     }
 
-    public void SetComplete(bool completed)
+    public virtual void SetComplete()
     {
-        _completed = completed;
+        _completed = true;
     }
     public bool GetComplete()
     {

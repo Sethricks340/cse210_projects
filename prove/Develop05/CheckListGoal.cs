@@ -1,7 +1,8 @@
 public class CheckListGoal : Goal
 {
-    private int accomplishedPoints = 0;
-    private int timesToComplete = 0;
+    private int _bonus = 0;
+    private int _timesToComplete = 0;
+    private int _timesCompleted = 0;
 
     public CheckListGoal()
     {
@@ -9,18 +10,51 @@ public class CheckListGoal : Goal
 
     public override void DisplayGoal()
     {
+        Console.Write($"[{_timesCompleted}/{_timesToComplete}] ");
+        Console.WriteLine($"{_goalName} ({_description})");
     }
 
-    public void SetAccomplishedPoints()
+    public void SetBonus(int bonus)
     {  
+        _bonus = bonus;
     }
 
-    public void TimesToComplete()
+    public override int GetPoints()
     {
+        if (_timesCompleted != _timesToComplete)
+        {
+            return base.GetPoints();
+        }
+
+        else 
+        {
+            return base.GetPoints() + _bonus;
+        }
     }
 
-    public void CompleteTime()
+    public void SetTimesToComplete(int timesToComplete)
     {
+        _timesToComplete = timesToComplete;
+    }
+
+    public override void SetComplete()
+    {
+        if (_timesCompleted < _timesToComplete)
+        {
+            _timesCompleted += 1;
+
+            if (_timesCompleted == _timesToComplete)
+            {
+                _completed = true;
+                Console.Write($"You earned a bonus! \n(Press enter to continue) ");
+                Console.ReadLine();
+            } 
+        }
+
+        else
+        {
+             _completed = true;
+        }
     }
 
 }
