@@ -8,6 +8,21 @@ public class CheckListGoal : Goal
     {
     }
 
+    public void SetTimesCompleted(int timescompleted)
+    {
+        _timesCompleted = timescompleted;
+    }
+
+    public int GetTimesToComplete()
+    {
+        return _timesToComplete;
+    }
+
+    public int GetCompletedTimes()
+    {
+        return _timesCompleted;
+    }
+
     public override void DisplayGoal()
     {
         Console.Write($"[{_timesCompleted}/{_timesToComplete}] ");
@@ -17,6 +32,11 @@ public class CheckListGoal : Goal
     public void SetBonus(int bonus)
     {  
         _bonus = bonus;
+    }
+
+    public int GetBonus()
+    {
+        return _bonus;
     }
 
     public override int GetPoints()
@@ -55,6 +75,11 @@ public class CheckListGoal : Goal
         {
              _completed = true;
         }
+    }
+
+    public override string GetGoalDetails()
+    {
+        return $"ChecklistGoal|{_goalName}|{_description}|{_pointValue}|{_bonus}|{_timesToComplete}|{_timesCompleted}";
     }
 
 }

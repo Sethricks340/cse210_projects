@@ -10,6 +10,8 @@ public abstract class Goal
 
     public abstract void DisplayGoal();
 
+    public abstract string GetGoalDetails();
+
     public void SetName(string goalName)
     {
         _goalName = goalName;
@@ -31,9 +33,19 @@ public abstract class Goal
         _description = description;
     }
 
+    public string GetDescription()
+    {
+        return _description;
+    }
+
     public virtual void SetComplete()
     {
         _completed = true;
+    }
+
+    public void SetCompleteVariable(bool complete)
+    {
+        _completed = complete;
     }
     public bool GetComplete()
     {

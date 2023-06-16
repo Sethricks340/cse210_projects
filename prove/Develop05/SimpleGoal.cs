@@ -15,6 +15,8 @@ public class SimpleGoal : Goal
         Console.WriteLine($"{_goalName} ({_description})");
     }
 
-    
-
+    public override string GetGoalDetails()
+    {
+        return $"SimpleGoal|{_goalName}|{_description}|{_pointValue}|{_completed}";
+    }
 }

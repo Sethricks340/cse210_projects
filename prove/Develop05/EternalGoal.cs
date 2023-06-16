@@ -15,4 +15,9 @@ public class EternalGoal : Goal
         //Eternal goals can never really be completed.
         _completed = false;
     }
+
+    public override string GetGoalDetails()
+    {
+        return $"EternalGoal|{_goalName}|{_description}|{_pointValue}";
+    }
 }
