@@ -220,27 +220,35 @@ public class Menu
 
                 //Quit
                 case "6":
-                    if (!_saved)
+                    if (_goals.Count > 0)
                     {
-                        Console.Write("You haven't saved. Are you sure you want to without saving? (Enter 'yes' to continue) ");
-                        string quit = Console.ReadLine();
-
-                        if (quit.ToLower() == "yes")
+                        if (!_saved)
                         {
-                            Environment.Exit(0);
+                            Console.Write("You haven't saved. Are you sure you want to without saving? (Enter 'yes' to continue) ");
+                            string quit = Console.ReadLine();
+
+                            if (quit.ToLower() == "yes")
+                            {
+                                Environment.Exit(0);
+                            }
+
+                            else
+                            {
+                                Console.Write("What is the file name for the goal file? ");
+                                filename = Console.ReadLine();
+                                totalPoints = _filehandler.Save(totalPoints, _goals, _loaded, filename);
+                                Console.WriteLine("Your responses have been saved.");
+                                Environment.Exit(0);
+                            }
                         }
 
                         else
                         {
-                            Console.Write("What is the file name for the goal file? ");
-                            filename = Console.ReadLine();
-                            totalPoints = _filehandler.Save(totalPoints, _goals, _loaded, filename);
-                            Console.WriteLine("Your responses have been saved.");
                             Environment.Exit(0);
                         }
                     }
 
-                    else
+                    else 
                     {
                         Environment.Exit(0);
                     }
