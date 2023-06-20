@@ -258,11 +258,4 @@ public class Menu
             response = "0";
         }
     }
-
-    public void Load()
-    {
-
-    }
-
-
 }
