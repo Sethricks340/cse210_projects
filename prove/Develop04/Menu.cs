@@ -7,8 +7,8 @@ public class Menu
     {
 
         string response = "";
-        string[] options = {"1", "2", "3", "4"};
-        while(response != "4")
+        string[] options = {"1", "2", "3", "4", "5"};
+        while(response != "5")
         {
             Console.Clear();
             while(options.Contains(response)==false)
