@@ -1,0 +1,82 @@
+Seth Ricks 
+Prove: Articulate- Polymorphism Articulate
+Brother Hayes
+CSE 210
+
+What is polymorphism and why is it important?
+
+Principle:
+Polymorphism is the concept where you can use multiple classes can use the same methods with variance based off of each individual class. Two classes can
+have a method with the same name, but can perform slightly different tasks with it due to the needs of the class. For example, a class could inherit a 
+method called "count" that counts to 3, but then override it so that it can also count to 5 when called inside of this specific class.
+
+Benefit:
+One benefit of using polymorphism is not having to re-write methods that have already been defined. Instead, methods can be inherited and called, and then edited 
+based off of what is needed to be performed for the new class.
+
+Application:
+An application of polymorphism is the concept of of abstract and interface classes. A class is abstract when it has at least abstract method. This means that
+the method is defined, but that it doesn't have a body of any kind. This is useful, because another class can inherit this method, and then easily override it so 
+that then method can be utilized for its individual purposes. An interface class is similar, except that all of its methods are abstract. This means that an interface 
+class does not have any member variables, and does not have any methods with a body. It basically is a bare bones class that can is very moldable and can be used in 
+many ways based of of what is needed from a child class.
+
+Example:
+Here is an example of how I used inheritance from our previous prove assignment.
+
+/////Goal.cs
+//First, I've declared a Goal class. This is the parent class.
+
+public abstract class Goal
+{
+    protected string _goalName;
+    protected string _description;
+    protected int _pointValue;
+    protected bool _completed;
+    public Goal()
+    {
+    }
+
+    ..........
+
+    public abstract void DisplayGoal();
+
+    public abstract string GetGoalDetails();
+
+    public virtual void SetComplete()
+    {
+        _completed = true;
+    }
+}
+
+/////EternalGoal.cs
+//Next, I've declared an Eternal Goal class. This is a child class. 
+
+public class EternalGoal : Goal
+{
+    public EternalGoal()
+    {
+    }
+
+    public override void DisplayGoal()
+    { 
+        Console.Write("[ ] ");
+        Console.WriteLine($"{_goalName} ({_description})");
+    }
+
+    public override void SetComplete()
+    {
+        //Eternal goals can never really be completed.
+        _completed = false;
+    }
+
+    public override string GetGoalDetails()
+    {
+        return $"EternalGoal|{_goalName}|{_description}|{_pointValue}";
+    }
+}
+
+
+//Notice how the Goal class declares two abstract methods, and a virtual method. The 
+EternalGoal class utilizes all three of these, overriding all of them in order to 
+use them according to its specification.
