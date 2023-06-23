@@ -1,0 +1,22 @@
+Here are some terminal commands that you probably forgot:
+
+cd "file"
+-opens the file directory
+
+cd ..
+-goes back a file 
+
+git add .
+-stages the current folder to be pushed to github
+
+git commit -m"here is your comment"
+-comment on the code you're about to pushed
+
+git push
+-pushes the code to github 
+
+git status
+-see what the status is of the code in your current folder 
+
+cls
+-clear the terminal
