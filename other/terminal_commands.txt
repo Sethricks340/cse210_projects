@@ -20,3 +20,12 @@ git status
 
 cls
 -clear the terminal
+
+Cntrl ~ 
+-opens and closes the terminal window
+
+dotnet run
+-runs current folder 
+
+dotnet new console 
+-configures the current folder to be able to run. idk what it does, but github works and stuff
