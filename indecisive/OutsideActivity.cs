@@ -1,10 +1,11 @@
 public class OutsideActivity : Activity
 {
-    string _timeAvailable;
-    public OutsideActivity(){}
+    string _timeAvailable = "";
 
     public string GetTime()
-    {}
+    {
+        return _timeAvailable;
+    }
 
     public void SetTime()
     {}

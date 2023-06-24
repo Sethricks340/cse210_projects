@@ -1,10 +1,7 @@
 public class Options
 {
-    public List<Restaurant> _restaurants;
-    public List<Activity> _activities;
-    public Options()
-    {
-    }
+    public List<Restaurant> _restaurants = new List<Restaurant>();
+    public List<Activity> _activities = new List<Activity>();
     
     public void AddRestaurant()
     {
@@ -12,10 +9,11 @@ public class Options
     public void AddActivity()
     {
     }
-    public Restaurant ChooseRandomRestaurant()
-    {
-    }
-    public Activity ChooseRandomActivity()
-    {
-    }
+    
+    // public Restaurant ChooseRandomRestaurant()
+    // {
+    // }
+    // public Activity ChooseRandomActivity()
+    // {
+    // }
 }
