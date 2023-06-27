@@ -1,9 +1,10 @@
-using System;
-
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello FinalProject World!");
-    }
+        Console.WriteLine("Is this uhhh... working?");
+
+        Menu menu = new Menu();
+        menu.Display();
+    } 
 }
