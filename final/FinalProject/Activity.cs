@@ -7,10 +7,14 @@ public abstract class Activity
     {
         return _name;
     }
-    public void SetName()
-    {}
-    public void AddNeededItems()
-    {}
+    public void SetName(string name)
+    {
+        _name = name;
+    }
+    public void AddNeededItem(string neededItem)
+    {
+        _neededItems.Add(neededItem);
+    }
     public List<string> GetNeededItems()
     {
         return _neededItems;

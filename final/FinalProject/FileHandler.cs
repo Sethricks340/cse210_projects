@@ -23,4 +23,23 @@ public class FileHandler
         }
         return exists;
     }
+
+    public void AddID(int ID)
+    {
+        Console.Clear();
+        FileHandler _fileHandler = new FileHandler();
+        if (_fileHandler.CheckIDExists(ID))
+        {
+            Console.WriteLine($"Sorry, the ID {ID} exists already. ");
+        }
+
+        else
+        {
+            string IDFile = "ID.txt";
+            using (StreamWriter outputFile = new StreamWriter(IDFile, true))
+            {
+                outputFile.WriteLine(ID); 
+            }
+        }
+    }
 }
