@@ -47,6 +47,7 @@ public class Options
             }
         }
 
+        Console.Clear();
         _restaurants.Add(_fastFood);
         _fastFoodRestaurants.Add(_fastFood);
 
@@ -108,14 +109,14 @@ public class Options
 
         _restaurants.Add(_sitDownRestaurant);
         _sitDownRestaurants.Add(_sitDownRestaurant);
+        Console.Clear();
 
         //Got rid of... RIP
         //Desired food items
         //Desired drink items
     }
 
-
-    public void AddOutSideActivity()
+    public void AddOutsideActivity()
     {
         OutsideActivity _outdoorActivity = new OutsideActivity();
         Console.WriteLine("What is the name of the outdoor activity? ");
@@ -148,12 +149,86 @@ public class Options
             }
         }
 
+        Console.Clear();
         _activities.Add(_outdoorActivity);
         _outdoorActivities.Add(_outdoorActivity);
+    }
+    
+    public void AddInsideActivity()
+    {
+        InsideActivity _insideActivity = new InsideActivity();
+        Console.WriteLine("What is the name of the indoor activity? ");
+        _insideActivity.SetName(Console.ReadLine());
+
+        Console.WriteLine("Would you like to add needed items for this activity? (yes or no) ");
+        string response = Console.ReadLine();
+        string done = "";
+
+        while (response.ToLower() == "yes" && done.ToLower() != "done")
+        {
+            Console.WriteLine("Enter a needed item, followed by enter. (type 'done' to exit)");
+            done = Console.ReadLine();
+            if (done.ToLower() != "done")
+            {
+                _insideActivity.AddNeededItem(done);
+            }
+        }
+
+        Console.Clear();
+        _activities.Add(_insideActivity);
+        _indoorActivities.Add(_insideActivity);
     }
 
 
 
+    public void ListAllActivities()
+    {
+        Console.Clear();
+        Console.WriteLine("Here are all the activities! ");
+
+        // foreach (Activity activity in _activities)
+        // {
+        //     Console.WriteLine(activity.GetName());
+        // }
+
+        foreach (Activity activity in _activities)
+        {
+            activity.Display();
+        }
+        Console.WriteLine($"\n(Press enter to continue)");
+        Console.ReadLine();
+        Console.Clear();
+
+    }
+
+    public void ListAllRestaurants()
+    {
+        Console.WriteLine("Here are all the restaurants! ");
+
+        foreach (Restaurant restaurant in _restaurants)
+        {
+            Console.WriteLine(restaurant.GetName());
+        }
+    }
+    public void ListFastFoodRestaurants()
+    {
+        Console.WriteLine("Here are all the fast food restaurants! ");
+
+        foreach (FastFoodRestaurant restaurant in _fastFoodRestaurants)
+        {
+            Console.WriteLine(restaurant.GetName());
+        }
+    }
+
+    public void ListSitDownRestaurants()
+    {
+        Console.WriteLine("Here are all the sit down restaurants! ");
+
+        foreach (SitDownRestaurant restaurant in _sitDownRestaurants)
+        {
+            Console.WriteLine(restaurant.GetName());
+        }
+    }
 
 
 

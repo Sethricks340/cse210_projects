@@ -14,4 +14,7 @@ public class OutsideActivity : Activity
 
     public override void Stringify()
     {}
+
+    public override void Display()
+    {}
 }

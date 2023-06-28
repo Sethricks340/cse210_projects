@@ -1,6 +1,6 @@
 public abstract class Activity
-{   string _name = "";
-    List<string> _neededItems = new List<string>();
+{   protected string _name = "";
+    protected List<string> _neededItems = new List<string>();
     public Activity(){}
 
     public string GetName()
@@ -20,5 +20,7 @@ public abstract class Activity
         return _neededItems;
     }
     public abstract void Stringify();
+
+    public abstract void Display();
 
 }

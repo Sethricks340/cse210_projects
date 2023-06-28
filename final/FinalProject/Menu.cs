@@ -94,25 +94,47 @@ public class Menu
                     _options.AddSitDownFood();
                     break;
                 
-                // //Add Soda Shop
-                // case "3":
-                //     break;
+                            // //Add Soda Shop
+                            // case "3":
+                            //     break;
 
-                // //Add Treat
-                // case "4":
-                //     break;
+                            // //Add Treat
+                            // case "4":
+                            //     break;
                 
                 //Add Indoor Activity
                 case "3":
+                    _options.AddInsideActivity();
                     break;
                 
                 //Add Outdoor Activity
                 case "4":
-                    _options.AddOutSideActivity();
+                    _options.AddOutsideActivity();
                     break;
                 
                 //Go to Random Generator
                 case "5":
+
+
+                    ////Testing
+                    //List all activities
+                    _options.ListAllActivities();
+                    // _options.ListAllRestaurants();
+                    // _options.ListFastFoodRestaurants();
+                    // _options.ListSitDownRestaurants();
+
+                    //List all indoor activities
+
+                    //List all outdoor activities
+
+                    //List all restaurants 
+
+                    //List all fast food restaurants 
+
+                    //List all sit down restaurants
+
+
+                    //Option to randomly generate something from any one of these
                     break;
 
                 //Save
