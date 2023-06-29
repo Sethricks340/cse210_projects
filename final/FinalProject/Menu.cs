@@ -2,13 +2,15 @@ public class Menu
 {
     FileHandler _filehandler = new FileHandler();
     Options _options = new Options();
-    Menu _menu = new Menu();
+    public Menu(Options options)
+    {
+        _options = options;
+    }
 
     public void Display()
     {   
-        Console.ReadLine();
         Console.Clear();
-        Console.WriteLine("Welcome to the Indecisive Date Program! ");
+        Console.WriteLine("Welcome to the Indecisive Date App! ");
 
         string response = "";
         string[] options = {"1", "2", "3"};
@@ -35,7 +37,7 @@ public class Menu
                     if (_filehandler.CheckIDExists(ID))
                     {
                         Console.WriteLine("This ID exists in the ID file");
-                        // Menu _menu = new Menu();
+                        Menu _menu = new Menu(_options);
                         _menu.ActivityMenu();
                     }
                     
@@ -110,7 +112,7 @@ public class Menu
 
                 //See inputed options
                 case "6":
-                    // Menu _menu = new Menu();
+                    Menu _menu = new Menu(_options);
                     _menu.ListOptionsMenu();
                     break;
 
@@ -159,7 +161,6 @@ public class Menu
 
                 //List all fast food restaurants 
                 case "2":
-                    _options.AddFastFood();
                     _options.ListFastFoodRestaurants();
                     break;
 
@@ -192,8 +193,8 @@ public class Menu
         }
     }
 
-
-
+    public void RandomGeneratorMenu()
+    {}
 
 
 

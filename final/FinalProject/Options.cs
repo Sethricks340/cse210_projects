@@ -3,16 +3,10 @@ public class Options
     public List<Restaurant> _restaurants = new List<Restaurant>();
     public List<FastFoodRestaurant> _fastFoodRestaurants = new List<FastFoodRestaurant>();
     public List<SitDownRestaurant> _sitDownRestaurants = new List<SitDownRestaurant>();
-    // public List<SodaShop> _sodaShops = new List<SodaShop>();
-    // public List<Treat> _treat = new List<Treat>();
     public List<Activity> _activities = new List<Activity>();
     public List<InsideActivity> _indoorActivities = new List<InsideActivity>();
     public List<OutsideActivity> _outdoorActivities = new List<OutsideActivity>();
     
-    public void AddRestaurant(string type)
-    {
-    }
-
     
     public void AddFastFood()
     {
@@ -50,10 +44,6 @@ public class Options
         Console.Clear();
         _restaurants.Add(_fastFood);
         _fastFoodRestaurants.Add(_fastFood);
-
-        //Got rid of... RIP
-        //Desired food items
-        //Desired drink items
     }
 
     public void AddSitDownFood()
@@ -110,10 +100,6 @@ public class Options
         _restaurants.Add(_sitDownRestaurant);
         _sitDownRestaurants.Add(_sitDownRestaurant);
         Console.Clear();
-
-        //Got rid of... RIP
-        //Desired food items
-        //Desired drink items
     }
 
     public void AddOutsideActivity()
@@ -179,8 +165,6 @@ public class Options
         _indoorActivities.Add(_insideActivity);
     }
 
-
-
     public void ListAllActivities()
     {
         Console.Clear();
@@ -198,7 +182,6 @@ public class Options
         Console.WriteLine($"\n(Press enter to continue)");
         Console.ReadLine();
         Console.Clear();
-
     }
 
     public void ListIndoorActivities()
@@ -213,7 +196,6 @@ public class Options
         Console.WriteLine($"\n(Press enter to continue)");
         Console.ReadLine();
         Console.Clear();
-
     }
 
     public void ListOutdoorActivities()
@@ -271,40 +253,16 @@ public class Options
         Console.Clear();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public void AddActivity()
-    {
-    }
-    
-    // public Restaurant ChooseRandomRestaurant()
-    // {
-    // }
-    // public Activity ChooseRandomActivity()
-    // {
-    // }
+    public void ChooseRandomRestaurant()
+    {}
+    public void ChooseRandomFastFood()
+    {}
+    public void ChooseRandomSitDown()
+    {}
+    public void ChooseRandomActivity()
+    {}
+    public void ChooseRandomIndoor()
+    {}
+    public void ChooseRandomOutdoor()
+    {}
 }

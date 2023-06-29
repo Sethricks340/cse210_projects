@@ -1,16 +1,15 @@
 class Program
 {
 
-    //Things I've cut down on:
-    //No soda shops
-    //No treats
-    //No times available
-    //You're welcome.
+    //Things to work on next:
+    //Random Generator menu -> menu class
+        //*Random Generator methods -> options class
     static void Main(string[] args)
     {
         // Console.WriteLine("Is this uhhh... working?");
 
-        Menu menu = new Menu();
+        Options options = new Options();
+        Menu menu = new Menu(options);
         menu.Display();
     } 
 }
