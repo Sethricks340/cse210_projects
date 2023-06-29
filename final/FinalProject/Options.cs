@@ -43,7 +43,7 @@ public class Options
             done = Console.ReadLine();
             if (done.ToLower() != "done")
             {
-                _fastFood.SetFoodItem(done);
+                _fastFood.SetDrinkItems(done);
             }
         }
 
@@ -85,7 +85,7 @@ public class Options
             done = Console.ReadLine();
             if (done.ToLower() != "done")
             {
-                _sitDownRestaurant.SetFoodItem(done);
+                _sitDownRestaurant.SetDrinkItems(done);
             }
         }
 
@@ -201,33 +201,74 @@ public class Options
 
     }
 
+    public void ListIndoorActivities()
+    {
+        Console.Clear();
+        Console.WriteLine("Here are all the indoor activities! ");
+
+        foreach (Activity activity in _indoorActivities)
+        {
+            activity.Display();
+        }
+        Console.WriteLine($"\n(Press enter to continue)");
+        Console.ReadLine();
+        Console.Clear();
+
+    }
+
+    public void ListOutdoorActivities()
+    {
+        Console.Clear();
+        Console.WriteLine("Here are all the outdoor activities! ");
+
+        foreach (Activity activity in _outdoorActivities)
+        {
+            activity.Display();
+        }
+        Console.WriteLine($"\n(Press enter to continue)");
+        Console.ReadLine();
+        Console.Clear();
+    }
+
     public void ListAllRestaurants()
     {
+        Console.Clear();
         Console.WriteLine("Here are all the restaurants! ");
 
         foreach (Restaurant restaurant in _restaurants)
         {
-            Console.WriteLine(restaurant.GetName());
+            restaurant.Display();
         }
+        Console.WriteLine($"\n(Press enter to continue)");
+        Console.ReadLine();
+        Console.Clear();
     }
     public void ListFastFoodRestaurants()
     {
+        Console.Clear();
         Console.WriteLine("Here are all the fast food restaurants! ");
 
         foreach (FastFoodRestaurant restaurant in _fastFoodRestaurants)
         {
-            Console.WriteLine(restaurant.GetName());
+            restaurant.Display();
         }
+        Console.WriteLine($"\n(Press enter to continue)");
+        Console.ReadLine();
+        Console.Clear();
     }
 
     public void ListSitDownRestaurants()
     {
+        Console.Clear();
         Console.WriteLine("Here are all the sit down restaurants! ");
 
         foreach (SitDownRestaurant restaurant in _sitDownRestaurants)
         {
-            Console.WriteLine(restaurant.GetName());
+            restaurant.Display();
         }
+        Console.WriteLine($"\n(Press enter to continue)");
+        Console.ReadLine();
+        Console.Clear();
     }
 
 

@@ -16,5 +16,11 @@ public class OutsideActivity : Activity
     {}
 
     public override void Display()
-    {}
+    {
+        base.Display();
+        if (_timeAvailable != "")
+        {
+            Console.WriteLine($"Time this activity is available: {_timeAvailable}");
+        }
+    }
 }

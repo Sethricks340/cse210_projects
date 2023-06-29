@@ -33,6 +33,33 @@ public abstract class Restaurant
     
     public abstract void Stringify();
 
+    public virtual void Display()
+    {
+        Console.WriteLine($"\n{_name}!");
+        
+        if (_foodItems.Count != 0)
+        {   
+            Console.WriteLine($"Here are the food items that you've inputed:");
+            foreach (string item in _foodItems)
+            {
+                // Console.WriteLine(_foodItems.IndexOf(item));
+                // Console.WriteLine( _foodItems.Count - 1);
+                Console.Write(_foodItems.IndexOf(item) != _foodItems.Count - 1 ? $"{item}, " : $"{item}\n");
+            }
+        }
+
+        if (_drinkItems.Count != 0)
+        {   
+            Console.WriteLine($"Here are the drink items that you've inputed:");
+            foreach (string item in _drinkItems)
+            {
+                // Console.WriteLine(_drinkItems.IndexOf(item));
+                // Console.WriteLine( _drinkItems.Count - 1);
+                Console.Write(_drinkItems.IndexOf(item) != _drinkItems.Count - 1 ? $"{item}, " : $"{item}\n");
+            }
+        }
+    }
+
 
     
     // public void SetTimeAvailable()
