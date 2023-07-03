@@ -3,7 +3,6 @@ public abstract class Restaurant
     protected string _name = "";
     protected List<string> _foodItems = new List<string>();
     protected List<string> _drinkItems = new List<string>();
-    // protected string _timeAvailable = "";
 
     public void SetName(string name)
     {
@@ -30,7 +29,7 @@ public abstract class Restaurant
         return _drinkItems;
     }
 
-    
+
     public abstract void Stringify();
 
     public virtual void Display()
@@ -60,14 +59,18 @@ public abstract class Restaurant
         }
     }
 
-
-    
-    // public void SetTimeAvailable()
-    // {
-    // }
-
-    // public string GetTimeAvailable()
-    // {
-    //     return _timeAvailable;
-    // }
+    public string ChooseRandomFood()
+    {
+        var random = new Random();
+        var randomNumber = random.Next(0,_foodItems.Count);
+        string randomFood = _foodItems[randomNumber];
+        return randomFood;
+    }
+    public string ChooseRandomDrink()
+    {
+        var random = new Random();
+        var randomNumber = random.Next(0,_drinkItems.Count);
+        string randomDrink = _drinkItems[randomNumber];
+        return randomDrink;
+    }
 }

@@ -7,7 +7,40 @@ public class Options
     public List<InsideActivity> _indoorActivities = new List<InsideActivity>();
     public List<OutsideActivity> _outdoorActivities = new List<OutsideActivity>();
     
-    
+    public bool IsListEmpty(string listType)
+    {
+        bool empty = true;
+        if (listType  == "Sit Down")
+        {
+            empty = _sitDownRestaurants.Count == 0 ? true : false; 
+        }
+
+        else if (listType == "Fast Food")
+        {
+            empty = _fastFoodRestaurants.Count == 0 ? true : false; 
+        }
+
+        else if (listType == "general Restaurant")
+        {
+            empty = _restaurants.Count == 0 ? true : false; 
+        }
+
+        else if (listType == "indoor activity")
+        {
+            empty = _indoorActivities.Count == 0 ? true : false; 
+        }
+
+        else if (listType == "outdoor activity")
+        {
+            empty = _outdoorActivities.Count == 0 ? true : false; 
+        }
+
+        else if (listType == "general activity")
+        {
+            empty = _outdoorActivities.Count == 0 ? true : false; 
+        }
+        return empty;
+    }
     public void AddFastFood()
     {
         FastFoodRestaurant _fastFood = new FastFoodRestaurant();
@@ -88,12 +121,12 @@ public class Options
             done = Console.ReadLine();
             if (done.ToLower() == "yes")
             {
-                _sitDownRestaurant.SetNeedResevation(true);
+                _sitDownRestaurant.SetNeedReservation(true);
             }
 
             else
             {
-                _sitDownRestaurant.SetNeedResevation(false);
+                _sitDownRestaurant.SetNeedReservation(false);
             }
         }
 
@@ -139,7 +172,6 @@ public class Options
         _activities.Add(_outdoorActivity);
         _outdoorActivities.Add(_outdoorActivity);
     }
-    
     public void AddInsideActivity()
     {
         InsideActivity _insideActivity = new InsideActivity();
@@ -169,11 +201,6 @@ public class Options
     {
         Console.Clear();
         Console.WriteLine("Here are all the activities! ");
-
-        // foreach (Activity activity in _activities)
-        // {
-        //     Console.WriteLine(activity.GetName());
-        // }
 
         foreach (Activity activity in _activities)
         {
@@ -253,16 +280,46 @@ public class Options
         Console.Clear();
     }
 
-    public void ChooseRandomRestaurant()
-    {}
-    public void ChooseRandomFastFood()
-    {}
-    public void ChooseRandomSitDown()
-    {}
-    public void ChooseRandomActivity()
-    {}
-    public void ChooseRandomIndoor()
-    {}
-    public void ChooseRandomOutdoor()
-    {}
+    public Restaurant ChooseRandomRestaurant()
+    {
+        var random = new Random();
+        var randomNumber = random.Next(0,_restaurants.Count);
+        Restaurant randomRestaurant = _restaurants[randomNumber];
+        return randomRestaurant;
+    }
+    public FastFoodRestaurant ChooseRandomFastFood()
+    {
+        var random = new Random();
+        var randomNumber = random.Next(0,_fastFoodRestaurants.Count);
+        FastFoodRestaurant randomRestaurant = _fastFoodRestaurants[randomNumber];
+        return randomRestaurant;
+    }
+    public SitDownRestaurant ChooseRandomSitDown()
+    {
+        var random = new Random();
+        var randomNumber = random.Next(0,_fastFoodRestaurants.Count);
+        SitDownRestaurant randomRestaurant = _sitDownRestaurants[randomNumber];
+        return randomRestaurant;
+    }
+    public Activity ChooseRandomActivity()
+    {
+        var random = new Random();
+        var randomNumber = random.Next(0,_activities.Count);
+        Activity randomActivity = _activities[randomNumber];
+        return randomActivity;
+    }
+    public InsideActivity ChooseRandomIndoor()
+    {
+        var random = new Random();
+        var randomNumber = random.Next(0,_indoorActivities.Count);
+        InsideActivity randomIndoor = _indoorActivities[randomNumber];
+        return randomIndoor;
+    }
+    public OutsideActivity ChooseRandomOutdoor()
+    {
+        var random = new Random();
+        var randomNumber = random.Next(0,_outdoorActivities.Count);
+        OutsideActivity randomOutdoor = _outdoorActivities[randomNumber];
+        return randomOutdoor;
+    }
 }

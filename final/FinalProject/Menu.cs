@@ -108,11 +108,13 @@ public class Menu
                 
                 //Go to Random Generator
                 case "5":
+                    Menu _menu = new Menu(_options);
+                    _menu.RandomGeneratorMenu();
                     break;
 
                 //See inputed options
                 case "6":
-                    Menu _menu = new Menu(_options);
+                    _menu = new Menu(_options);
                     _menu.ListOptionsMenu();
                     break;
 
@@ -143,7 +145,7 @@ public class Menu
                 Console.WriteLine($"Please select one of the following options: ");
                 Console.WriteLine("1. List All Restaurants");
                 Console.WriteLine("2. List All Fast Food Restaurants");
-                Console.WriteLine("3. List All Sit Down Restaurant");
+                Console.WriteLine("3. List All Sit Down Restaurants");
                 Console.WriteLine("4. List All Activities");
                 Console.WriteLine("5. List All Indoor Activities");
                 Console.WriteLine("6. List All Outdoor Activities");
@@ -194,7 +196,229 @@ public class Menu
     }
 
     public void RandomGeneratorMenu()
-    {}
+    {
+        Console.Clear();
+        string response = "";
+        string[] options = {"1", "2", "3", "4", "5", "6", "7"};
+        while(response != "7")
+        {
+            while(options.Contains(response)==false)
+            {
+                
+                Console.WriteLine($"\nHere is the Random Generator menu: ");
+                Console.WriteLine($"Please select one of the following options: ");
+                Console.WriteLine("1. Generate Random Restaurant");
+                Console.WriteLine("2. Generate Random Fast Food Restaurant");
+                Console.WriteLine("3. Generate Random Sit Down Restaurant");
+                Console.WriteLine("4. Generate Random Activity");
+                Console.WriteLine("5. Generate Random Indoor Activity");
+                Console.WriteLine("6. Generate Random Outdoor Activity");
+                Console.WriteLine("7. Go back");
+
+                response = Console.ReadLine() ?? "";
+            }
+
+            switch(response)
+            {
+                //Generate Random Restaurant
+                case "1":
+                    Console.Clear();
+                    if (!_options.IsListEmpty("general Restaurant"))
+                    {
+                        Console.Clear();
+                        Restaurant randomRestaurant = _options.ChooseRandomRestaurant();
+                        Console.WriteLine("Here is your randomly generated restaurant! Enjoy!");
+                        Console.WriteLine($"{randomRestaurant.GetName()}"!);
+
+                        Console.WriteLine(randomRestaurant.GetFoodItems().Count != 0 ? $"You could try this food!\n{randomRestaurant.ChooseRandomFood()}" : "");
+
+                        Console.WriteLine(randomRestaurant.GetDrinkItems().Count != 0 ? $"You could try this drink!\n{randomRestaurant.ChooseRandomDrink()}" : "");
+                        
+                        //Check for reservation
+                        if (randomRestaurant is SitDownRestaurant)
+                        {
+                            SitDownRestaurant sitDownRestaurant = (SitDownRestaurant)randomRestaurant;
+                            bool needReservation = sitDownRestaurant.GetNeedReservation();
+                            Console.WriteLine(needReservation ? $"Remember that you're going to need a reservation!" : $"You don't need a reservation!");
+                        }
+
+                        Console.WriteLine($"\n(Press enter to continue)");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Sorry, there are no inputted restaurants to generate from. ");
+                    }
+                    break;
+
+                //Generate Random Fast Food Restaurant
+                case "2":
+                    Console.Clear();
+                    if (!_options.IsListEmpty("Fast Food"))
+                    {
+                        Console.Clear();
+                        FastFoodRestaurant randomFast = _options.ChooseRandomFastFood();;
+                        Console.WriteLine("Here is your randomly generated fast food restaurant! Enjoy!");
+                        Console.WriteLine($"{randomFast.GetName()}"!);
+
+                        Console.WriteLine(randomFast.GetFoodItems().Count != 0 ? $"You could try this food!\n{randomFast.ChooseRandomFood()}" : "");
+
+                        Console.WriteLine(randomFast.GetDrinkItems().Count != 0 ? $"You could try this drink!\n{randomFast.ChooseRandomDrink()}" : "");
+
+                        Console.WriteLine($"\n(Press enter to continue)");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Sorry, there are no inputted fast food restaurants to generate from. ");
+                    }
+                    break;
+
+                //Generate Random Sit Down
+                case "3":
+                    Console.Clear();
+                    if (!_options.IsListEmpty("Sit Down"))
+                    {
+                        Console.Clear();
+                        SitDownRestaurant sitDown = _options.ChooseRandomSitDown();
+                        Console.WriteLine("Here is your randomly generated restaurant! Enjoy!");
+                        Console.WriteLine($"{sitDown.GetName()}"!);
+
+                        Console.WriteLine(sitDown.GetFoodItems().Count != 0 ? $"You could try this food!\n{sitDown.ChooseRandomFood()}" : "");
+
+                        Console.WriteLine(sitDown.GetDrinkItems().Count != 0 ? $"You could try this drink!\n{sitDown.ChooseRandomDrink()}" : "");
+                        
+                        bool reservation = sitDown.GetNeedReservation();
+                        Console.WriteLine(reservation ? $"Remember that you're going to need a reservation!" : $"You don't need a reservation!");
+
+                        Console.WriteLine($"\n(Press enter to continue)");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sorry, there are no inputted sit down restaurants to generate from. ");
+                    }
+                    break;
+
+                //Generate Random Activity
+                case "4":
+                    Console.Clear();
+                    if (!_options.IsListEmpty("general activity"))
+                    {
+                        Console.Clear();
+                        Activity activity = _options.ChooseRandomActivity();
+                        Console.WriteLine("Here is your randomly generated activity! ");
+                        Console.WriteLine($"{activity.GetName()}"!);
+
+                        if (activity.GetNeededItems().Count != 0)
+                        {
+                            List<string> _neededItems = activity.GetNeededItems();
+                            Console.WriteLine($"You will need the following items:");
+                            
+                            foreach (string item in _neededItems)
+                            {
+                                Console.Write(_neededItems.IndexOf(item) != _neededItems.Count - 1 ? $"{item}, " : $"{item}\n");
+                            }
+                        }
+
+                        if (activity is OutsideActivity)
+                        {
+                            OutsideActivity outside = (OutsideActivity)activity;
+                            string time = outside.GetTime();
+                            Console.WriteLine(time != "" ? $"Time this activity is avilable: {time}" : "");
+                        }
+
+                        Console.WriteLine($"\n(Press enter to continue)");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Sorry, there are no inputted activities to generate from. ");
+                    }
+                    break;
+
+                //Generate Random Indoor Activity
+                case "5":
+                    Console.Clear();
+                    if (!_options.IsListEmpty("indoor activity"))
+                    {
+                        Console.Clear();
+                        InsideActivity indoor = _options.ChooseRandomIndoor();
+                        Console.WriteLine("Here is your randomly generated indoor activity! ");
+                        Console.WriteLine($"{indoor.GetName()}"!);
+
+                        if (indoor.GetNeededItems().Count != 0)
+                        {
+                            List<string> _neededItems = indoor.GetNeededItems();
+                            Console.WriteLine($"You will need the following items:");
+                            
+                            foreach (string item in _neededItems)
+                            {
+                                Console.Write(_neededItems.IndexOf(item) != _neededItems.Count - 1 ? $"{item}, " : $"{item}\n");
+                            }
+                        }
+
+                        Console.WriteLine($"\n(Press enter to continue)");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Sorry, there are no inputted indoor activities to generate from. ");
+                    }
+                    break;
+
+                //Generate Random Outdoor Activity
+                case "6":
+                    Console.Clear();
+                    if (!_options.IsListEmpty("outdoor activity"))
+                    {
+                        Console.Clear();
+                        OutsideActivity outdoor = _options.ChooseRandomOutdoor();
+                        Console.WriteLine("Here is your randomly generated outdoor activity! ");
+                        Console.WriteLine($"{outdoor.GetName()}"!);
+
+                        if (outdoor.GetNeededItems().Count != 0)
+                        {
+                            List<string> _neededItems = outdoor.GetNeededItems();
+                            Console.WriteLine($"You will need the following items:");
+                            
+                            foreach (string item in _neededItems)
+                            {
+                                Console.Write(_neededItems.IndexOf(item) != _neededItems.Count - 1 ? $"{item}, " : $"{item}\n");
+                            }
+                        }
+                        
+                        string outdoorTime = outdoor.GetTime();
+                        Console.WriteLine(outdoorTime != "" ? $"Time this activity is avilable: {outdoorTime}" : "");
+
+                        Console.WriteLine($"\n(Press enter to continue)");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Sorry, there are no inputted outdoor activities to generate from. ");
+                    }
+                    break;
+
+                //Quit Random Generator menu
+                case "7":
+                    Console.Clear();
+                    break;
+            }
+            response = (response != "7") ? "0" : "7";
+        }
+    }
 
 
 

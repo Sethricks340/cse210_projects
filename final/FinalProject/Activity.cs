@@ -29,8 +29,6 @@ public abstract class Activity
             
             foreach (string item in _neededItems)
             {
-                // Console.WriteLine(_neededItems.IndexOf(item));
-                // Console.WriteLine( _neededItems.Count - 1);
                 Console.Write(_neededItems.IndexOf(item) != _neededItems.Count - 1 ? $"{item}, " : $"{item}\n");
             }
         }
