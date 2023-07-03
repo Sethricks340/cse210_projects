@@ -41,6 +41,15 @@ public class Options
         }
         return empty;
     }
+
+    public List<Restaurant> GetRestaurants()
+    {
+        return _restaurants;
+    }
+    public List<Activity> GetActivities()
+    {
+        return _activities;
+    }
     public void AddFastFood()
     {
         FastFoodRestaurant _fastFood = new FastFoodRestaurant();

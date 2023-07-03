@@ -30,7 +30,7 @@ public abstract class Restaurant
     }
 
 
-    public abstract void Stringify();
+    public abstract string Stringify();
 
     public virtual void Display()
     {

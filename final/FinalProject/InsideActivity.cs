@@ -2,8 +2,31 @@ public class InsideActivity : Activity
 {
     public InsideActivity(){}
 
-    public override void Stringify()
-    {}
+    public override string Stringify()
+    {
+        //Inside|name
+        //or
+        //Inside|name|item1,item2,item3
+        string stringify = "Inside";
+        stringify += $"|{_name}";
+        if (_neededItems.Count != 0)
+        {
+            stringify += "|";
+            foreach (string item in _neededItems)
+            {
+                if (_neededItems.IndexOf(item) != _neededItems.Count -1)
+                {
+                    stringify += $"{item},";
+                }
+
+                else
+                {
+                    stringify += $"{item}";
+                }
+            }
+        }
+        return stringify;
+    }
 
     public override void Display()
     {

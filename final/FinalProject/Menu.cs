@@ -1,10 +1,11 @@
 public class Menu 
 {
-    FileHandler _filehandler = new FileHandler();
     Options _options = new Options();
+    FileHandler _filehandler;
     public Menu(Options options)
     {
         _options = options;
+        _filehandler = new FileHandler(_options);
     }
 
     public void Display()
@@ -32,13 +33,18 @@ public class Menu
                 case "1":
                     Console.Clear();
                     Console.WriteLine("Please enter your number ID: ");
-                    int ID = int.Parse(Console.ReadLine());
+                    string ID = Console.ReadLine();
 
                     if (_filehandler.CheckIDExists(ID))
                     {
-                        Console.WriteLine("This ID exists in the ID file");
+                        string[] lines = System.IO.File.ReadAllLines($"{ID}.txt");
+
+                        //Load file info 
+
+                        string userName = lines[0];
+                        Console.WriteLine($"Welcome {userName}, your past info has been loaded :) ");
                         Menu _menu = new Menu(_options);
-                        _menu.ActivityMenu();
+                        _menu.ActivityMenu(ID);
                     }
                     
                     else
@@ -51,8 +57,10 @@ public class Menu
                 case "2":
                     Console.Clear();
                     Console.WriteLine("Please create your number ID: ");
-                    ID = int.Parse(Console.ReadLine());
-                    _filehandler.AddID(ID);
+                    ID = Console.ReadLine();
+                    Console.WriteLine("What is your name? ");
+                    string name = Console.ReadLine();
+                    _filehandler.AddID(ID, name);
                     break;
 
                 //Quit
@@ -64,11 +72,11 @@ public class Menu
         }
     }
 
-    public void ActivityMenu()
+    public void ActivityMenu(string ID)
     {
         string response = "";
-        string[] options = {"1", "2", "3", "4", "5", "6", "7", "8"};
-        while(response != "8")
+        string[] options = {"1", "2", "3", "4", "5", "6", "7"};
+        while(response != "7")
         {
             while(options.Contains(response)==false)
             {
@@ -79,8 +87,7 @@ public class Menu
                 Console.WriteLine("4. Add Outdoor Activity");
                 Console.WriteLine("5. Go to Random Generator");
                 Console.WriteLine("6. See Inputed Options");
-                Console.WriteLine("7. Save");
-                Console.WriteLine("8. Quit");
+                Console.WriteLine("7. Save and Quit");
 
                 response = Console.ReadLine() ?? "";
             }
@@ -118,12 +125,9 @@ public class Menu
                     _menu.ListOptionsMenu();
                     break;
 
-                //Save
+                //Save and Quit
                 case "7":
-                    break;
-
-                //Quit
-                case "8":
+                    _filehandler.Save(ID);
                     Environment.Exit(0);
                     break;
             }

@@ -19,7 +19,7 @@ public abstract class Activity
     {
         return _neededItems;
     }
-    public abstract void Stringify();
+    public abstract string Stringify();
 
     public virtual void Display()
     {
