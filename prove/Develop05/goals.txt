@@ -1,4 +1,7 @@
-2029
+512729
+EternalGoal|The best goal|Cool goal|10000
+SimpleGoal|go to parisa|paris|500000|True
+ChecklistGoal|checklist|checklist|200|100|3|3
 SimpleGoal|1|1|1|True
 SimpleGoal|seth|me|1000|True
 SimpleGoal|1|1|1|True
