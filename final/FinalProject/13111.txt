@@ -1,0 +1,4 @@
+Seth Ricks
+FastFood|Panda Express|orange chicken,kung pow chicken,stirfry,fried rice|water,gatorade|
+SitDown|da pineapple grill|||False
+FastFood|wendys|frosty,fries||

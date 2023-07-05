@@ -42,6 +42,31 @@ public class Options
         return empty;
     }
 
+    public void AppendRestaurantList(Restaurant restaurant)
+    {
+        _restaurants.Add(restaurant);
+    }
+    public void AppendFastFoodList(FastFoodRestaurant restaurant)
+    {
+        _fastFoodRestaurants.Add(restaurant);
+    }
+    public void AppendSitDownList(SitDownRestaurant restaurant)
+    {
+        _sitDownRestaurants.Add(restaurant);
+    }
+    public void AppendActivityList(Activity activity)
+    {
+        _activities.Add(activity);
+    }
+    public void AppendIndoorList(InsideActivity activity)
+    {
+        _indoorActivities.Add(activity);
+    }
+    public void AppendOutdoorList(OutsideActivity activity)
+    {
+        _outdoorActivities.Add(activity);
+    }
+
     public List<Restaurant> GetRestaurants()
     {
         return _restaurants;

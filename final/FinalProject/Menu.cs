@@ -39,12 +39,12 @@ public class Menu
                     {
                         string[] lines = System.IO.File.ReadAllLines($"{ID}.txt");
 
-                        //Load file info 
+                        _filehandler.Load(ID);
 
                         string userName = lines[0];
                         Console.WriteLine($"Welcome {userName}, your past info has been loaded :) ");
                         Menu _menu = new Menu(_options);
-                        _menu.ActivityMenu(ID);
+                        _menu.ActivityMenu(ID, userName);
                     }
                     
                     else
@@ -72,7 +72,7 @@ public class Menu
         }
     }
 
-    public void ActivityMenu(string ID)
+    public void ActivityMenu(string ID, string name)
     {
         string response = "";
         string[] options = {"1", "2", "3", "4", "5", "6", "7"};
@@ -127,7 +127,7 @@ public class Menu
 
                 //Save and Quit
                 case "7":
-                    _filehandler.Save(ID);
+                    _filehandler.Save(ID, name);
                     Environment.Exit(0);
                     break;
             }
@@ -232,7 +232,7 @@ public class Menu
                         Console.Clear();
                         Restaurant randomRestaurant = _options.ChooseRandomRestaurant();
                         Console.WriteLine("Here is your randomly generated restaurant! Enjoy!");
-                        Console.WriteLine($"{randomRestaurant.GetName()}"!);
+                        Console.WriteLine($"**{randomRestaurant.GetName()}");
 
                         Console.WriteLine(randomRestaurant.GetFoodItems().Count != 0 ? $"You could try this food!\n{randomRestaurant.ChooseRandomFood()}" : "");
 
@@ -265,7 +265,7 @@ public class Menu
                         Console.Clear();
                         FastFoodRestaurant randomFast = _options.ChooseRandomFastFood();;
                         Console.WriteLine("Here is your randomly generated fast food restaurant! Enjoy!");
-                        Console.WriteLine($"{randomFast.GetName()}"!);
+                        Console.WriteLine($"**{randomFast.GetName()}");
 
                         Console.WriteLine(randomFast.GetFoodItems().Count != 0 ? $"You could try this food!\n{randomFast.ChooseRandomFood()}" : "");
 
@@ -289,8 +289,8 @@ public class Menu
                     {
                         Console.Clear();
                         SitDownRestaurant sitDown = _options.ChooseRandomSitDown();
-                        Console.WriteLine("Here is your randomly generated restaurant! Enjoy!");
-                        Console.WriteLine($"{sitDown.GetName()}"!);
+                        Console.WriteLine("Here is your randomly generated sit down restaurant! Enjoy!");
+                        Console.WriteLine($"**{sitDown.GetName()}");
 
                         Console.WriteLine(sitDown.GetFoodItems().Count != 0 ? $"You could try this food!\n{sitDown.ChooseRandomFood()}" : "");
 
@@ -317,7 +317,7 @@ public class Menu
                         Console.Clear();
                         Activity activity = _options.ChooseRandomActivity();
                         Console.WriteLine("Here is your randomly generated activity! ");
-                        Console.WriteLine($"{activity.GetName()}"!);
+                        Console.WriteLine($"**{activity.GetName()}");
 
                         if (activity.GetNeededItems().Count != 0)
                         {
@@ -356,7 +356,7 @@ public class Menu
                         Console.Clear();
                         InsideActivity indoor = _options.ChooseRandomIndoor();
                         Console.WriteLine("Here is your randomly generated indoor activity! ");
-                        Console.WriteLine($"{indoor.GetName()}"!);
+                        Console.WriteLine($"**{indoor.GetName()}");
 
                         if (indoor.GetNeededItems().Count != 0)
                         {
@@ -388,7 +388,7 @@ public class Menu
                         Console.Clear();
                         OutsideActivity outdoor = _options.ChooseRandomOutdoor();
                         Console.WriteLine("Here is your randomly generated outdoor activity! ");
-                        Console.WriteLine($"{outdoor.GetName()}"!);
+                        Console.WriteLine($"**{outdoor.GetName()}");
 
                         if (outdoor.GetNeededItems().Count != 0)
                         {

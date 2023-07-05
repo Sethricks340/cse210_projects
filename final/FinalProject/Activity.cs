@@ -25,7 +25,7 @@ public abstract class Activity
     {
         if (_neededItems.Count != 0)
         {
-            Console.WriteLine($"\n{_name}!\nYou will need the following items:");
+            Console.WriteLine($"\n**{_name}\nYou will need the following items:");
             
             foreach (string item in _neededItems)
             {
@@ -35,7 +35,7 @@ public abstract class Activity
 
         else
         {
-            Console.WriteLine($"\n{_name}!");
+            Console.WriteLine($"\n**{_name}");
         }
     }
 

@@ -8,10 +8,9 @@ public class InsideActivity : Activity
         //or
         //Inside|name|item1,item2,item3
         string stringify = "Inside";
-        stringify += $"|{_name}";
+        stringify += $"|{_name}|";
         if (_neededItems.Count != 0)
         {
-            stringify += "|";
             foreach (string item in _neededItems)
             {
                 if (_neededItems.IndexOf(item) != _neededItems.Count -1)
@@ -25,6 +24,8 @@ public class InsideActivity : Activity
                 }
             }
         }
+        stringify += "|";
+
         return stringify;
     }
 

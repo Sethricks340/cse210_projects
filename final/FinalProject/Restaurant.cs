@@ -34,7 +34,7 @@ public abstract class Restaurant
 
     public virtual void Display()
     {
-        Console.WriteLine($"\n{_name}!");
+        Console.WriteLine($"\n**{_name}");
         
         if (_foodItems.Count != 0)
         {   

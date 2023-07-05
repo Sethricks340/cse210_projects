@@ -22,10 +22,9 @@ public class OutsideActivity : Activity
         //or
         //Outside|name|item1,item2,item3|timeAvailable
         string stringify = "Outside";
-        stringify += $"|{_name}";
+        stringify += $"|{_name}|";
         if (_neededItems.Count != 0)
         {
-            stringify += "|";
             foreach (string item in _neededItems)
             {
                 if (_neededItems.IndexOf(item) != _neededItems.Count -1)
@@ -39,11 +38,12 @@ public class OutsideActivity : Activity
                 }
             }
         }
-
+        stringify += "|";
         if (_timeAvailable != "")
         {
-            stringify += $"|{_timeAvailable}";
+            stringify += $"{_timeAvailable}";
         }
+        stringify += "|";
 
         return stringify;
     }

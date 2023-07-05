@@ -33,9 +33,9 @@ public class SitDownRestaurant : Restaurant
 
         string stringify = "SitDown";
         stringify += $"|{_name}";
+        stringify += "|";
         if (_foodItems.Count != 0)
         {
-            stringify += "|";
             foreach (string item in _foodItems)
             {
                 if (_foodItems.IndexOf(item) != _foodItems.Count - 1)
@@ -49,10 +49,10 @@ public class SitDownRestaurant : Restaurant
                 }
             }
         }
+        stringify += "|";
 
         if (_drinkItems.Count != 0)
         {
-            stringify += "|";
             foreach (string item in _drinkItems)
             {
                 if (_drinkItems.IndexOf(item) != _drinkItems.Count - 1)
