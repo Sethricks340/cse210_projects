@@ -423,11 +423,4 @@ public class Menu
             response = (response != "7") ? "0" : "7";
         }
     }
-
-
-
-
-
-
-
 }

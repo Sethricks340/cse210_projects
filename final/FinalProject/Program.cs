@@ -1,9 +1,6 @@
 class Program
 {
-
-    //Things to work on next:
-    //Random Generator menu -> menu class
-        //*Random Generator methods -> options class
+    //a total 1339 lines of code!
     static void Main(string[] args)
     {
         // Console.WriteLine("Is this uhhh... working?");
