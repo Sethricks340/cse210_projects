@@ -37,7 +37,7 @@ public class Options
 
         else if (listType == "general activity")
         {
-            empty = _outdoorActivities.Count == 0 ? true : false; 
+            empty = _activities.Count == 0 ? true : false; 
         }
         return empty;
     }

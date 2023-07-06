@@ -1,14 +1,5 @@
 Isabel Ricks
-Inside|indoor|item1,item2,item3|
-Inside|inside||
-Outside|outdoor|item1,item2,item3|at night|
-Outside|outdoor|||
-Inside|indoor||
-Outside|outdoor|||
-Outside|play frisbee|frisbee|during the day|
-FastFood|fastfood|food1,food2,food3|food1,food2,food3|
-FastFood|fast|||
-SitDown|sitdown|food1,food2,food3|food1,food2,food3|False
-SitDown|sitdown!|||True
-FastFood|fast|||
-SitDown|sitdown|||False
+Inside|watch a movie||
+Outside|play frisbee|frisbee,workout clothes|during the day|
+FastFood|sonic|corn dog,slushie,tater tots||
+FastFood|SodaVine|pretzel,lemon cookie,hucklberry cookie,brownie cookie!|Southern gentlemen,nailed it,run around sue,freight train,oh what a night,soomth presley,uptowngirl,I love lucy,Huckleberry,The Izzy classic!,Louie Louie,Locomotion|
