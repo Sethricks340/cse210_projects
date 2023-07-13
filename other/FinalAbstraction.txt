@@ -1,0 +1,197 @@
+Seth Ricks 
+Prove: Articulate Final
+Brother Hayes
+CSE 210
+
+ABSTRACTION:
+Definition - Abstraction is taking a concept that is complex and labeling it in such a way that allows usage of said concept without having to 
+know all of the details that are taking place "under the hood."
+
+I used the principle of abstraction in my final program in several ways. To be honest, it is hard to find a place in my program where abstraction wasn't used. This is 
+because everything that took place in my program happened inside of a class. A class is a way that abstraction can be applied, in that it compartmentalizes all of the
+code that resides inside of it, which can then be called with a single initialization of the class. In my final project I had 10 classes. Their names are the following: 
+Program, Menu, Options, FileHandler, Restaurant, FastFoodRestaurant, SitDownRestaurant, Activity, InsideActivity, and OutsideActivity.
+
+Here is an example of one of my classes, that demonstrates the principle of abstraction: 
+(I've taken out the code in the methods so it's easier to read for this articulation assignment)
+
+public class FileHandler
+{
+    Options _options;
+    public FileHandler(){}
+    public FileHandler(Options options)
+    {
+        _options = options;
+    }
+
+    public void Save(string ID, string name)
+    {
+    }
+
+    public void Load(string ID)
+    {
+    }
+
+    public bool CheckIDExists(string ID)
+    {
+    }
+
+    public void AddID(string ID, string name)
+    {
+    }
+}
+
+
+
+ENCAPSULATION:
+Definition - Encapsulation is the principle of hiding certain parts of a program from other parts of the program.
+
+Encapsulation is utilized in every class in my project. I have implemented the practice of keeping elements of a class private unless it is absolutely necessary for it to 
+be otherwise. Member variables and methods can also be public or protected.
+
+Here is an example of how my Restaurant class used encapsulation. Notice that the member variables _name, _foodItems, and _drinkItems are all protected. This is because 
+other classes that inherit from Restaurant need to use these in order to funciton. 
+(I've taken out the methods so it's easier to read for this assignment)
+
+public abstract class Restaurant
+{
+    protected string _name = "";
+    protected List<string> _foodItems = new List<string>();
+    protected List<string> _drinkItems = new List<string>();
+
+    //This class has several methods that are not included in this example.
+}
+
+
+
+INHERITANCE:
+Definition - Inheritance in programming means that a "child" class can easily acquire the characteristics of a "parent" class. This means that it can inherit all of the member 
+variables and methods.
+
+Inheritance was an absolute must in my final project. I had several programs that inherited from others, making it so that I only had to write some methods once. I honestly am so 
+grateful for that. Here is an example in my program where my OutsideActivity class inherited from my Activity class. Notice how the child class does not have the methods of GetName, 
+SetName, AddNeededItem, or GetNeededItems. This is because it has automatically incorporated those methods as-is.
+
+
+////This is the parent class 
+
+public abstract class Activity
+{   protected string _name = "";
+    protected List<string> _neededItems = new List<string>();
+    public Activity(){}
+
+    public string GetName()
+    {
+        return _name;
+    }
+    public void SetName(string name)
+    {
+        _name = name;
+    }
+    public void AddNeededItem(string neededItem)
+    {
+        _neededItems.Add(neededItem);
+    }
+    public List<string> GetNeededItems()
+    {
+        return _neededItems;
+    }
+    ///There are more methods that are not included in this example
+}
+
+
+////This is the child class 
+
+public class OutsideActivity : Activity
+{
+    string _timeAvailable = "";
+
+    public string GetTime()
+    {
+        return _timeAvailable;
+    }
+
+    public void SetTime(string timeAvailable)
+    {
+        _timeAvailable = timeAvailable;
+    }
+    ///There are more methods that are not included in this example
+}
+
+
+
+POLYMORPHISM:
+Definition - Polymorphism is using multiple classes that comprise of the same methods with variance based off of each individual class.
+
+I used the principle of polymorphism in a couple of my classes. Polymorphism can be seen when a method is declared as virtual or abstract. Other methods that inherit these methods are 
+not only able to utilize it, but it is able to even change it 
+according to its particular needs.
+
+Here is an example of this concept, from my Activity class and InsideActivity classes. Notice how the parent class implements methods that are override and abstract, than the child 
+class then implements.
+
+public abstract class Activity
+{   protected string _name = "";
+    protected List<string> _neededItems = new List<string>();
+    public Activity(){}
+
+    ///There are more methods that are not included in this example
+
+    public abstract string Stringify();
+
+    public virtual void Display()
+    {
+        if (_neededItems.Count != 0)
+        {
+            Console.WriteLine($"\n**{_name}\nYou will need the following items:");
+            
+            foreach (string item in _neededItems)
+            {
+                Console.Write(_neededItems.IndexOf(item) != _neededItems.Count - 1 ? $"{item}, " : $"{item}\n");
+            }
+        }
+
+        else
+        {
+            Console.WriteLine($"\n**{_name}");
+        }
+    }
+}
+
+
+public class InsideActivity : Activity
+{
+    public InsideActivity(){}
+
+    public override string Stringify()
+    {
+        //Inside|name
+        //or
+        //Inside|name|item1,item2,item3
+        string stringify = "Inside";
+        stringify += $"|{_name}|";
+        if (_neededItems.Count != 0)
+        {
+            foreach (string item in _neededItems)
+            {
+                if (_neededItems.IndexOf(item) != _neededItems.Count -1)
+                {
+                    stringify += $"{item},";
+                }
+
+                else
+                {
+                    stringify += $"{item}";
+                }
+            }
+        }
+        stringify += "|";
+
+        return stringify;
+    }
+
+    public override void Display()
+    {
+        base.Display();
+    }
+}
