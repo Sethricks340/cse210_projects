@@ -195,3 +195,23 @@ public class InsideActivity : Activity
         base.Display();
     }
 }
+
+HOW THESE PRINCIPLES ALLOW THE PROGRAM TO CHANGE: 
+
+If I hadn't incorporated these principles in my program, it would've been significantly more difficult to change. 
+
+Abstraciton:
+If I had put all of these methods into one class, it would've been very difficult to keep track of and utilize. It would be impossible to create differnt instances of the classes if they 
+don't exist, and they would have to be re-written every time they need to be used. What a nightmare!
+
+Encapsulation:
+When the principle of encapsulation is implemented, it means that you know exactly where a variable exists. If there are errors with a certain private variable, you don't have to search 
+several files in order to find the error. This makes it easier to change, not to mention more safe.
+
+Inheritance:
+With the principle of inheritance, certain methods only have to be written once. If another class wants to use the method, it can just inherit it from another class instead of 
+re-writting it. In order to change said method, you only have to change it in the parent class.
+
+Polymorphism:
+This makes change easier in a similar way that inheritance does. It is easier to change a method in one class that uses the inherited method in a different way than all the others, rather 
+than creating completely different methods. With the application of base.method(), if the base has to change it only has to be edited once in the parent file.
