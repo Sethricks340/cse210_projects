@@ -5,6 +5,7 @@
         Console.Clear();
         Board board = new Board();
         //board.DisplayValues();
-        board.DisplayBoard();
+        //board.DisplayOriginalBoard();
+        board.EditBoard();
     } 
 }

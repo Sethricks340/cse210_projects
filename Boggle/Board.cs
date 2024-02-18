@@ -5,6 +5,7 @@ public class Board
     List<int>  _x_values = new List<int>();
     List<int>  _y_values = new List<int>();
     List<List<int>> _units = new List<List<int>>();
+    List<Cube> _cubes = new List<Cube>();
     public Board()
     {
         for (int k = 1; k < 5; k++)
@@ -21,6 +22,11 @@ public class Board
                     _units.Add(list1);     
                 } 
             }
+        for (int i = 1; i < _units.Count+1; i++)
+        {
+            Cube _ = new Cube(_units[i-1][0], _units[i-1][1], i.ToString());
+            _cubes.Add(_);
+        }
     }
 
 
@@ -49,6 +55,12 @@ public class Board
             Console.Write($")");
             Console.Write("\n");
         }
+
+        Console.WriteLine($"\nCube names of the Board: ");
+            for (int i = 0; i < _cubes.Count; i++)
+            {
+                Console.WriteLine($"{_cubes[i]._cubeName}");
+            }
     }
 
     public void EnterLetters()
@@ -56,16 +68,31 @@ public class Board
         Console.ReadLine();
     }
 
-    public void DisplayBoard()
+    public void DisplayOriginalBoard()
     {
         Console.Write($"-----------------\n");
-        Console.Write($"| 1 | 2 | 3 | 4 |\n");
+        Console.Write($"| {_cubes[0]._cubeName} | {_cubes[1]._cubeName} | {_cubes[2]._cubeName} | {_cubes[3]._cubeName} |\n");
         Console.Write($"-----------------\n");
-        Console.Write($"| 5 | 6 | 7 | 8 |\n");
+        Console.Write($"| {_cubes[4]._cubeName} | {_cubes[5]._cubeName} | {_cubes[6]._cubeName} | {_cubes[7]._cubeName} |\n");
         Console.Write($"-----------------\n");
-        Console.Write($"| 9 |10 |11 |12 |\n");
+        Console.Write($"| {_cubes[8]._cubeName} | {_cubes[9]._cubeName} | {_cubes[10]._cubeName} | {_cubes[11]._cubeName} |\n");
         Console.Write($"-----------------\n");
-        Console.Write($"|13 |14 |15 |16 |\n");
+        Console.Write($"| {_cubes[12]._cubeName} | {_cubes[13]._cubeName} | {_cubes[14]._cubeName} | {_cubes[15]._cubeName} |\n");
         Console.Write($"-----------------");
+    }
+
+    public void EditBoard()
+    {
+        Console.Clear();
+        DisplayOriginalBoard();
+        for (int i = 1; i < _units.Count + 1; i++)
+        {
+            Console.Clear();
+            DisplayOriginalBoard();
+            string? response = " ";
+            Console.WriteLine($"\nPlease enter letter for cube #{i}: ");
+            response = Console.ReadLine();
+            _cubes[i-1]._cubeName = response;
+        }
     }
 }
