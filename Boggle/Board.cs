@@ -50,4 +50,22 @@ public class Board
             Console.Write("\n");
         }
     }
+
+    public void EnterLetters()
+    {
+        Console.ReadLine();
+    }
+
+    public void DisplayBoard()
+    {
+        Console.Write($"-----------------\n");
+        Console.Write($"| 1 | 2 | 3 | 4 |\n");
+        Console.Write($"-----------------\n");
+        Console.Write($"| 5 | 6 | 7 | 8 |\n");
+        Console.Write($"-----------------\n");
+        Console.Write($"| 9 |10 |11 |12 |\n");
+        Console.Write($"-----------------\n");
+        Console.Write($"|13 |14 |15 |16 |\n");
+        Console.Write($"-----------------");
+    }
 }

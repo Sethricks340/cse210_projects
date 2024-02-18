@@ -4,6 +4,7 @@
     {
         Console.Clear();
         Board board = new Board();
-        board.DisplayValues();
+        //board.DisplayValues();
+        board.DisplayBoard();
     } 
 }
