@@ -4,6 +4,17 @@
     "tasks": [
 
         {
+            "label": "build-Boggle",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Boggle/Boggle.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+
+        {
             "label": "build-sandbox-Sandbox",
             "command": "dotnet",
             "type": "process",

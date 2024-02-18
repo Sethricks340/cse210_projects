@@ -199,6 +199,19 @@
         },
 
         {
+            "name": "Boggle Project (Open ended)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-Boggle",
+            "program": "${workspaceFolder}/Boggle/bin/Debug/net7.0/Boggle.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Boggle",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
             "name": "Foundation 1 (YouTube)",
             "type": "coreclr",
             "request": "launch",
