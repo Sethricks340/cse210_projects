@@ -68,7 +68,7 @@ public class Board
         Console.ReadLine();
     }
 
-    public void DisplayOriginalBoard()
+    public void DisplayBoard()
     {
         Console.Write($"-----------------\n");
         Console.Write($"| {_cubes[0]._cubeName} | {_cubes[1]._cubeName} | {_cubes[2]._cubeName} | {_cubes[3]._cubeName} |\n");
@@ -84,11 +84,11 @@ public class Board
     public void EditBoard()
     {
         Console.Clear();
-        DisplayOriginalBoard();
+        DisplayBoard();
         for (int i = 1; i < _units.Count + 1; i++)
         {
             Console.Clear();
-            DisplayOriginalBoard();
+            DisplayBoard();
             string? response = " ";
             Console.WriteLine($"\nPlease enter letter for cube #{i}: ");
             response = Console.ReadLine();
