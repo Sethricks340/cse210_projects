@@ -92,7 +92,7 @@ public class Board
             string? response = " ";
             Console.WriteLine($"\nPlease enter letter for cube #{i}: ");
             response = Console.ReadLine();
-            _cubes[i-1]._cubeName = response;
+            _cubes[i-1]._cubeName = response.ToUpper();
         }
     }
 }

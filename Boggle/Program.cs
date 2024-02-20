@@ -2,26 +2,26 @@
 {
     static void Main(string[] args)
     {
-        // Console.Clear();
-        // Board board = new Board();
+        Console.Clear();
+        Board board = new Board();
+
         // board.DisplayValues();
-        // //board.DisplayOriginalBoard();
-        // board.EditBoard();
+        //board.DisplayOriginalBoard();
+        board.EditBoard();
         // board.DisplayValues();
 
 
-        string EnglishWords = "EnglishWordsGT3.txt";
-        string tempFilePath = "temp.txt";
-        string[] lines = System.IO.File.ReadAllLines(EnglishWords);
-        using (StreamWriter writer = new StreamWriter(tempFilePath))
-        {
-            foreach (string line in lines)
-            {
-                if(line.Length >= 3)
-                {
-                    writer.WriteLine(line);
-                }
-            }
-        }
+        // string EnglishWords = "EnglishWordsGT3.txt";
+        // string tempFilePath = "temp.txt";
+        // string[] lines = System.IO.File.ReadAllLines(EnglishWords);
+        // using (StreamWriter writer = new StreamWriter(tempFilePath))
+        // {   
+            
+        // }
+
+
+
+
+
     }
 }
