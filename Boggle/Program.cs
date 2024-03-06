@@ -4,20 +4,30 @@
     {
         Console.Clear();
         Board board = new Board();
+        // board.AddCenterLetter("p");
+        // board.AddOtherLetters("a", "e", "h", "l", "t", "y");
 
-        // board.DisplayValues();
-        //board.DisplayOriginalBoard();
-        board.EditBoard();
-        // board.DisplayValues();
+        Console.WriteLine("What is the center letter?");
+        string CenterLetter = Console.ReadLine();
+        Console.WriteLine("Outer letter 1: ");
+        string OuterLetter0 = Console.ReadLine();
+        Console.WriteLine("Outer letter 2: ");
+        string OuterLetter1 = Console.ReadLine();
+        Console.WriteLine("Outer letter 3: ");
+        string OuterLetter2 = Console.ReadLine();
+        Console.WriteLine("Outer letter 4: ");
+        string OuterLetter3 = Console.ReadLine();
+        Console.WriteLine("Outer letter 5: ");
+        string OuterLetter4 = Console.ReadLine();
+        Console.WriteLine("Outer letter 6: ");
+        string OuterLetter5 = Console.ReadLine();
 
+        board.AddCenterLetter(CenterLetter);
+        board.AddOtherLetters(OuterLetter0, OuterLetter1, OuterLetter2, OuterLetter3, OuterLetter4, OuterLetter5);
 
-        // string EnglishWords = "EnglishWordsGT3.txt";
-        // string tempFilePath = "temp.txt";
-        // string[] lines = System.IO.File.ReadAllLines(EnglishWords);
-        // using (StreamWriter writer = new StreamWriter(tempFilePath))
-        // {   
-            
-        // }
+        Console.Clear();
+        board.SortPossibleWords();
+        board.PrintPossibleWords();
 
 
 

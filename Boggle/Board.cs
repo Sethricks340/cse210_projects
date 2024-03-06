@@ -1,98 +1,97 @@
 public class Board
 {
+    string _centerLetter = "";
+    List<string> _otherLetters = new List<string>();
+    List<string> _possibleWords = new List<string>();
+    //List<string> _possibleWords = new List<string>();
 
 
-    List<int>  _x_values = new List<int>();
-    List<int>  _y_values = new List<int>();
-    List<List<int>> _units = new List<List<int>>();
-    List<Cube> _cubes = new List<Cube>();
     public Board()
-    {
-        for (int k = 1; k < 5; k++)
-        {
-            _x_values.Add(k);
-            _y_values.Add(k);
-        }
+    {}
 
-        for (int i = 1; i < 5; i++)
+    public void AddCenterLetter(string CenterLetter)
+    {
+        _centerLetter = CenterLetter;
+    }
+
+    public void AddOtherLetters(String Letter0, String Letter1, String Letter2, String Letter3, String Letter4, String Letter5)
+    {
+        _otherLetters.Add(Letter0);
+        _otherLetters.Add(Letter1);
+        _otherLetters.Add(Letter2);
+        _otherLetters.Add(Letter3);
+        _otherLetters.Add(Letter4);
+        _otherLetters.Add(Letter5);
+    }
+
+    public void SortPossibleWords()
+    {
+        string[] lines = System.IO.File.ReadAllLines("EnglishWords.txt");
+        
+        foreach (string word in lines)
+        {
+            char[] letters = word.ToCharArray();
+
+            bool contains = true;
+            foreach (char letter in letters)
             {
-                for (int j = 1; j < 5; j++)
-                {
-                    List<int> list1 = new List<int>() { i, j };   
-                    _units.Add(list1);     
-                } 
+                if (_otherLetters.Contains(letter.ToString()) && contains)
+                {}
+                else if(_centerLetter == letter.ToString() && contains)
+                {}
+                else
+                {contains = false;}   
+
             }
-        for (int i = 1; i < _units.Count+1; i++)
+                if (contains)
+                {_possibleWords.Add(word);}
+
+        }
+        CheckIfGreaterThan3();
+        CheckIfCenterLetter();
+    }
+
+    public void CheckIfGreaterThan3()
+    {
+        List<string> wordsToRemove = new List<string>();
+
+    foreach (string word in _possibleWords)
+    {
+        if (word.Length <= 3)
         {
-            Cube _ = new Cube(_units[i-1][0], _units[i-1][1], i.ToString());
-            _cubes.Add(_);
+            wordsToRemove.Add(word);
         }
     }
 
-
-    public void DisplayValues()
+    foreach (string wordToRemove in wordsToRemove)
     {
-        Console.Write($"X Values of the Board: ");
-        for (int i = 0; i < 4; i++)
-        {
-            Console.Write($"{_x_values[i]} ");
-        }
-
-        Console.Write($"\nY Values of the Board: ");
-        for (int i = 0; i < 4; i++)
-        {
-            Console.Write($"{_y_values[i]} ");
-        }
-
-        Console.WriteLine($"\nUnits of the Board: ");
-        foreach (var innerList in _units)
-        {
-            Console.Write($"(");
-            foreach (var number in innerList)
-            {
-                Console.Write($"{number} ");
-            }
-            Console.Write($")");
-            Console.Write("\n");
-        }
-
-        Console.WriteLine($"\nCube names of the Board: ");
-            for (int i = 0; i < _cubes.Count; i++)
-            {
-                Console.WriteLine($"{_cubes[i]._cubeName}");
-            }
+        _possibleWords.Remove(wordToRemove);
+    }
     }
 
-    public void EnterLetters()
+    public void CheckIfCenterLetter()
     {
-        Console.ReadLine();
-    }
+        List<string> wordsToRemove = new List<string>();
 
-    public void DisplayBoard()
+        foreach (string word in _possibleWords)
     {
-        Console.Write($"-----------------\n");
-        Console.Write($"| {_cubes[0]._cubeName} | {_cubes[1]._cubeName} | {_cubes[2]._cubeName} | {_cubes[3]._cubeName} |\n");
-        Console.Write($"-----------------\n");
-        Console.Write($"| {_cubes[4]._cubeName} | {_cubes[5]._cubeName} | {_cubes[6]._cubeName} | {_cubes[7]._cubeName} |\n");
-        Console.Write($"-----------------\n");
-        Console.Write($"| {_cubes[8]._cubeName} | {_cubes[9]._cubeName} | {_cubes[10]._cubeName} | {_cubes[11]._cubeName} |\n");
-        Console.Write($"-----------------\n");
-        Console.Write($"| {_cubes[12]._cubeName} | {_cubes[13]._cubeName} | {_cubes[14]._cubeName} | {_cubes[15]._cubeName} |\n");
-        Console.Write($"-----------------");
-    }
-
-    public void EditBoard()
-    {
-        Console.Clear();
-        DisplayBoard();
-        for (int i = 1; i < _units.Count + 1; i++)
+        if (!word.Contains(_centerLetter))
         {
-            Console.Clear();
-            DisplayBoard();
-            string? response = " ";
-            Console.WriteLine($"\nPlease enter letter for cube #{i}: ");
-            response = Console.ReadLine();
-            _cubes[i-1]._cubeName = response.ToUpper();
+            wordsToRemove.Add(word);
+        }
+    }
+
+    foreach (string wordToRemove in wordsToRemove)
+    {
+        _possibleWords.Remove(wordToRemove);
+    } 
+    }
+
+    public void PrintPossibleWords()
+    {
+        foreach (string word in _possibleWords)
+        {
+            Console.WriteLine($"{word}");
         }
     }
 }
