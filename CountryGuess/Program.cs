@@ -11,7 +11,7 @@ namespace CountryGuessGame
         private Button checkButton;
 
         private string[] countries = { "France", "Germany", "Italy" }; // Add more countries as needed
-        private string[] countries_link = {@"Screenshot France.png", @"Screenshot Germany.png", @"Screenshot italy.png"};
+        private string[] countries_link = {@"C:\Users\sethr\OneDrive\Pictures\Screenshots\Screenshot France.png", @"C:\Users\sethr\OneDrive\Pictures\Screenshots\Screenshot Germany.png", @"C:\Users\sethr\OneDrive\Pictures\Screenshots\Screenshot italy.png"};
         private Random random = new Random();
         private int currentCountryIndex;
 
