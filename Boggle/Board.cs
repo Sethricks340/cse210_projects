@@ -26,7 +26,7 @@ public class Board
 
     public void SortPossibleWords()
     {
-        string[] lines = System.IO.File.ReadAllLines("EnglishWords.txt");
+        string[] lines = System.IO.File.ReadAllLines("Words.txt");
         
         foreach (string word in lines)
         {
